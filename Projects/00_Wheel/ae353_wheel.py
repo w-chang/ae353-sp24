@@ -47,7 +47,7 @@ class Wheel_sim():
         
         # Define the target angle and some useful constants
         # before the simulation
-        self.angle_tag = 3.1415926
+        self.angle_tag = 0.0
         self.P = 0.0
         self.D = 0.0
 
@@ -313,6 +313,7 @@ class Wheel_sim():
                 self.angle_tag = initial_target_angle
                 self.P = initial_P
                 self.D = initial_D
+                
                 
         # When the simulation is done running, gather all simulation data 
         # into a dictionary and return it

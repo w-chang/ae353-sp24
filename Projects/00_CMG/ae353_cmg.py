@@ -1,5 +1,5 @@
 """
-This modules provides a backend for the ae353 cart example
+This modules provides a backend for the ae353 cmg example
 """
 
 ###############################################################################
