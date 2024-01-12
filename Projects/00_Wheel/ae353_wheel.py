@@ -15,7 +15,7 @@ from pathlib import Path
 class Wheel_sim():
     def __init__(self,
                  visualization=True,
-                 visualization_fr=24.,
+                 visualization_fr=20.,
                  animation=True,
                  animation_fr=10.):
         """
@@ -28,7 +28,7 @@ class Wheel_sim():
             visualized in meshcat. The default is True.
         visualization_fr : float, optional
             The frame rate (frames per second) at which the visualizer is
-            updated. The default is 24..
+            updated. The default is 20..
         animation : bool, optional
             A boolean flag that indicates whether animated plots are created
             in real time. The default is True.
