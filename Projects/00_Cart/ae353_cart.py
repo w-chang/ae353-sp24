@@ -178,7 +178,30 @@ class Cart_sim():
 
         Returns
         -------
-        None.
+        data : Dictionary of Lists
+            
+            data["pendulum_angle"] : List of Floats
+                A list of the pendulum angle in radians at each time stamp
+                during the simulation.
+            
+            data["wheel_angle"] : List of Floats
+                A list of the wheel angle in radians at each time stamp during
+                the simulation.
+            
+            data["pendulum_velocity"] : List of Floats
+                A list of the pendulum velocity in radians/secondat each time
+                stamp during the simulation.
+            
+            data["wheel_velocity"] : List of Floats
+                A list of the wheel velocity in radians/second at each time
+                stamp during the simulation.
+            
+            data["torque"] : List of Floats
+                A list of the applied torque in Newton-meters at each time
+                stamp during the simulation.
+            
+            data["time"] : List of Floats
+                A list of the time stamps in seconds.
 
         """
         # Set the initial values

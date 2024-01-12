@@ -164,7 +164,25 @@ class Wheel_sim():
 
         Returns
         -------
-        None.
+        data : Dictionary of Lists
+        
+            data["angle"] : List of Floats
+                A list of all wheel angles during the simulation.
+
+            data["target_angle"] : List of Floats
+                A list of all target wheel angles during the simulation.
+
+            data["time"] : List of Floats
+                A list of the time during the simulation.
+
+            data["P"] : List of Floats
+                A list of all proportional gains set during the simulation.
+
+            data["D"] : List of Floats
+                A list of all derivative gains set during the simulation.
+
+            data["torque"] : List of Floats
+                A list of all torques applied during the simulation.
 
         """
         # Set the initial values

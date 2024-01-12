@@ -13,7 +13,7 @@ import numpy as np
 ###############################################################################
 #SIMULATION CLASS
 ###############################################################################
-class Cart_sim():
+class CMG_sim():
     def __init__(self,
                  visualization=True,
                  visualization_fr=20.,
@@ -58,62 +58,40 @@ class Cart_sim():
             path = (Path(__file__).parents[0]).absolute().as_posix()
             
             # Load the ground
-            plane_path = path + "/cart_vis/plane.urdf"
-            self.ground_obj = self.sim.load_urdf(urdf_path=plane_path,
-                                            position=[0., 0., 0.],
-                                            wxyz_quaternion=[1., 0., 0., 0],
-                                            fixed=True,
-                                            update_vis=False)
-
-            # Load the walls
-            concrete_path = path + "/cart_vis/concrete.png"
-            self.left_wall_obj = self.sim.load_urdf(urdf_path=plane_path,
-                                               tex_path=concrete_path,
-                                               position=[0., -5., 0.],
-                                               roll=-np.pi/2.,
-                                               fixed=True,
-                                               update_vis=False)
-            self.right_wall_obj = self.sim.load_urdf(urdf_path=plane_path,
-                                                tex_path=concrete_path,
-                                                position=[0., 5., 0.],
-                                                roll=np.pi/2.,
-                                                fixed=True,
-                                                update_vis=False)
-            
-            # Load the cart
-            cart_path = path + "/cart_vis/cart.urdf"
-            self.cart_obj = self.sim.load_urdf(urdf_path=cart_path,
-                                               position=[0., 0., 0.25],
-                                               yaw=np.pi/2,
-                                               fixed=False,
-                                               update_vis=True)
+            cmg_path = path + "/cmg_vis/cmg.urdf"
+            self.cmg_obj = self.sim.load_urdf(urdf_path=cmg_path,
+                                    roll=np.pi/2,
+                                    yaw=3*np.pi/4.,
+                                    pitch=np.pi,
+                                    fixed=True,
+                                    update_vis=True)
 
         
         # If there is no animation, do not add subplots
         if not animation:
             return
         
-        # Make plot for state and input
+        # Make plot for states and input
         self.p1, self.a1 = self.sim.add_subplot(n_artists=2,
                                                 subplot_type='line',
-                                                title="Angles vs Time",
-                                                x_label="Time [Seconds]",
-                                                y_label="Angles [Deg / Rad]",
+                                                title="State",
+                                                x_label="Time [s]",
+                                                y_label="Angles [Deg]",
                                                 colors=["m", "c"],
                                                 line_widths=[2.5, 2.5],
                                                 line_styles=["-", "-"],
-                                                labels=["Pendulum [Deg]",
-                                                        "Wheel [Rad]"],
+                                                labels=['Frame', 'Gimbal'],
+                                                y_lim=[-90.,90],
                                                 h_zero_line=True)
         self.p2, self.a2 = self.sim.add_subplot(n_artists=1,
                                                 subplot_type='line',
-                                                title="Torque vs Time",
-                                                x_label="Time [Seconds]",
+                                                title="Input",
+                                                x_label="Time [s]",
                                                 y_label="Torque [Nm]",
-                                                y_lim=[-5.,5.],
                                                 colors=["k"],
                                                 line_widths=[2.5],
                                                 line_styles=["-"],
+                                                y_lim=[-1.,1.],
                                                 h_zero_line=True)
         
         # Open the animator GUI
@@ -122,10 +100,12 @@ class Cart_sim():
 
     def run(self,
             controller,
-            initial_pendulum_angle = 0.0,
-            initial_wheel_angle = 0.0,
-            initial_pendulum_velocity = 0.0,
-            initial_wheel_velocity = 0.0):
+            initial_frame_angle = 0.0,
+            initial_gimbal_angle = 0.0,
+            initial_frame_velocity = 0.0,
+            initial_gimbal_velocity = 0.0,
+            rotor_velocity = 100.0,
+            frame_damping = 0.1):
         """
         Runs a complete wheel simulation
 
@@ -155,69 +135,109 @@ class Cart_sim():
                 None.
                 
                 
-        initial_pendulum_angle : Float, optional
-            The initial angle of the pendulum in radians. This is set
+        initial_frame_angle : Float, optional
+            The initial angle of the frame in radians. This is set
             when the simulation starts and when the simulation is
             reset. The default value is 0.0.
         
-        initial_wheel_angle : Float, optional
-            The initial angle of the wheels in radians. This is set
+        initial_gimbal_angle : Float, optional
+            The initial angle of the gimbal in radians. This is set
             when the simulation starts and when the simulation is
             reset. The default value is 0.0.
         
-        initial_pendulum_velocity : Float, optional
-            The initial velocity of the pendulum in radians/second.
+        initial_frame_velocity : Float, optional
+            The initial velocity of the frame in radians/second.
             This is set when the simulation starts and when the
             simulation is reset. The default value is 0.0.
         
-        initial_wheel_velocity : Float, optional
-            The initial velocity of the wheels in radians/second.
+        initial_gimbal_velocity : Float, optional
+            The initial velocity of the gimbal in radians/second.
             This is set when the simulation starts and when the
             simulation is reset. The default value is 0.0.
                                 
+        rotor_velocity : Float, optional
+            The fixed velocity of the rotor. Remember, if this is changed,
+            the dynamics will also be changed. Make sure to update your 
+            controller accordingly! The default value is 100.0.
+            
+        frame_damping : Float, optional
+            The damping applied to the frame axle. If set to 0, no energy
+            is lost. Anything greater than 0 results in energy loss while
+            the frame is moving. The default value is 0.1.
 
         Returns
         -------
-        None.
+        data : Dictionary of lists
+            
+            data["frame_angle"] : List of Floats
+                A list of the frame angle in radians at each time stamp during
+                the simulation.
+                
+            data["gimbal_angle"] : List of Floats
+                A list of the gimbal angle in radians at each time stamp during
+                the simulation.
+                
+            data["frame_velocity"] : List of Floats
+                A list of the frame velocity in radians/secondat each time
+                stamp during the simulation.
+                
+            data["gimbal_velocity"] : List of Floats
+                A list of the gimbal velocity in radians/second at each time
+                stamp during the simulation.
+                
+            data["rotor_velocity"] : List of Floats
+                A list of the rotor velocity in radians/secondat each time
+                stamp during the simulation.
+                
+            data["torque"] : List of Floats
+                A list of the applied torque in Newton-meters at each time
+                stamp during the simulation.
+                
+            data["time"] : List of Floats  
+                A list of the time stamps in seconds.
 
         """
         # Set the initial values
-        self.sim.set_joint_position(urdf_obj=self.cart_obj,
-                                joint_name='chassis_to_arm',
-                                position=initial_pendulum_angle,
+        self.sim.set_joint_position(urdf_obj=self.cmg_obj,
+                                joint_name='wall_to_frame_axle',
+                                position=initial_frame_angle,
                                 initial_cond=True,
                                 physics=False)
-        self.sim.set_joint_velocity(urdf_obj=self.cart_obj,
-                                joint_name='chassis_to_arm',
-                                velocity=initial_pendulum_velocity,
+        self.sim.set_joint_velocity(urdf_obj=self.cmg_obj,
+                                joint_name='wall_to_frame_axle',
+                                velocity=initial_frame_velocity,
                                 initial_cond=True,
                                 physics=False)
-        wheels = ['chassis_to_wheel_1',
-                  'chassis_to_wheel_2',
-                  'chassis_to_wheel_3',
-                  'chassis_to_wheel_4']
-        for wheel_name in wheels:
-            self.sim.set_joint_position(urdf_obj=self.cart_obj,
-                                    joint_name=wheel_name,
-                                    position=initial_wheel_angle,
-                                    initial_cond=True,
-                                    physics=False)
-            self.sim.set_joint_velocity(urdf_obj=self.cart_obj,
-                                    joint_name=wheel_name,
-                                    velocity=initial_wheel_velocity,
-                                    initial_cond=True,
-                                    physics=False)
+        self.sim.set_joint_position(urdf_obj=self.cmg_obj,
+                                joint_name='frame_to_cage_axle',
+                                position=initial_gimbal_angle,
+                                initial_cond=True,
+                                physics=False)
+        self.sim.set_joint_velocity(urdf_obj=self.cmg_obj,
+                                joint_name='frame_to_cage_axle',
+                                velocity=initial_gimbal_velocity,
+                                initial_cond=True,
+                                physics=False)
         
+        # Set the gimbal rate and pendulum damping
+        self.sim.set_joint_velocity(urdf_obj=self.cmg_obj,
+                                    joint_name='cage_to_wheel',
+                                    velocity = rotor_velocity,
+                                    physics=True)
+        self.sim.set_joint_damping(urdf_obj=self.cmg_obj,
+                                   joint_name='wall_to_frame_axle',
+                                   damping=frame_damping)
         
         # Reset the controller
         controller.reset()
         
         # Create a lists to hold the simulation data
         time_history = []
-        pendulum_angle_history =[]
-        pendulum_velocity_history = []
-        wheel_angle_history =[]
-        wheel_velocity_history = []
+        frame_angle_history =[]
+        frame_velocity_history = []
+        gimbal_angle_history =[]
+        gimbal_velocity_history = []
+        rotor_velocity_history = []
         torque_history = []
 
         # Run the simulation loop
@@ -225,39 +245,31 @@ class Cart_sim():
         while(not self.sim.is_done):
             ##################################################################
             # SENSOR
-            # Use a sensor to collect the pendulum angle and rate
-            pendulum_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-                                                  joint_name='chassis_to_arm')
-            pendulum_angle = pendulum_state['position']
-            pendulum_rate = pendulum_state['velocity']
+            # Get the frame angle and rate
+            frame_state = self.sim.get_joint_state(urdf_obj=self.cmg_obj,
+                                               joint_name="wall_to_frame_axle")
+            frame_angle = frame_state['position']
+            frame_velocity = frame_state['velocity']
             
-            # Use a sensor to collect the angles and rates of each wheel
-            wheel1_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-                                               joint_name='chassis_to_wheel_1')
-            wheel2_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-                                               joint_name='chassis_to_wheel_2')
-            wheel3_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-                                               joint_name='chassis_to_wheel_3')
-            wheel4_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-                                               joint_name='chassis_to_wheel_4')
+            # Get the gimbal angle and rate
+            gimbal_state = self.sim.get_joint_state(urdf_obj=self.cmg_obj,
+                                            joint_name="frame_to_cage_axle")
+            gimbal_angle = gimbal_state['position']
+            gimbal_velocity = gimbal_state['velocity']
             
-            # Calculate the average wheel angle and velocity
-            wheel_angle = 0.25*(wheel1_state['position']+
-                                wheel2_state['position']+
-                                wheel3_state['position']+
-                                wheel4_state['position'])
-            wheel_rate = 0.25*(wheel1_state['velocity']+
-                               wheel2_state['velocity']+
-                               wheel3_state['velocity']+
-                               wheel4_state['velocity'])
+            # Get the rotor state
+            rotor_state = self.sim.get_joint_state(urdf_obj=self.cmg_obj,
+                                                   joint_name='cage_to_wheel')
+            curr_rotor_velocity = rotor_state['velocity']
             
             ###################################################################
             # CONTROLLER
             # Get the torque as calculated by the controller
-            inputs = controller.run(pendulum_angle=pendulum_angle,
-                                    wheel_angle=wheel_angle,
-                                    pendulum_velocity=pendulum_rate,
-                                    wheel_velocity=wheel_rate,
+            inputs = controller.run(frame_angle=frame_angle,
+                                    frame_velocity=frame_velocity,
+                                    gimbal_angle=gimbal_angle,
+                                    gimbal_velocity=gimbal_velocity,
+                                    rotor_velocity=curr_rotor_velocity,
                                     time=self.sim.time)
             torque = inputs[0]
             
@@ -265,40 +277,36 @@ class Cart_sim():
             # SIMULATION DATA
             # Append data to history lists
             time_history.append(self.sim.time)
-            pendulum_angle_history.append(pendulum_angle)
-            pendulum_velocity_history.append(pendulum_rate)
-            wheel_angle_history.append(wheel_angle)
-            wheel_velocity_history.append(wheel_rate)
+            frame_angle_history.append(frame_angle)
+            frame_velocity_history.append(frame_velocity)
+            gimbal_angle_history.append(gimbal_angle)
+            gimbal_velocity_history.append(gimbal_velocity)
+            rotor_velocity_history.append(rotor_velocity)
             torque_history.append(torque)
             
             ###################################################################
             # ACTUATOR
-            # Apply one quater of the controller calculated torque to
-            # each of the four the wheels.
-            for wheel_name in wheels:
-                self.sim.set_joint_torque(urdf_obj=self.cart_obj,
-                                          joint_name=wheel_name,
-                                          torque=0.25*torque,
-                                          show_arrow=True,
-                                          arrow_scale=0.25,
-                                          arrow_offset=0.025)
+            # Set the CMG wheel torque
+            self.sim.set_joint_torque(urdf_obj=self.cmg_obj,
+                                      joint_name="frame_to_cage_axle",
+                                      torque=torque,
+                                      show_arrow=True,
+                                      arrow_scale=1.)
             
             ###################################################################
-            # UPDATE THE PLOTS
-            # This is how we add data points to the animator
-            # Plot the pendulum angle, wheel angle, and torque
+            # UPDATE THE PLOT
             self.sim.add_subplot_point(subplot_index=self.p1,
-                                       artist_index=self.a1[0],
-                                       x=self.sim.time,
-                                       y=180.*pendulum_angle/np.pi)
+                                  artist_index=self.a1[0],
+                                  x=self.sim.time,
+                                  y=frame_angle*180/np.pi)
             self.sim.add_subplot_point(subplot_index=self.p1,
-                                       artist_index=self.a1[1],
-                                       x=self.sim.time,
-                                       y=wheel_angle)
+                                  artist_index=self.a1[1],
+                                  x=self.sim.time,
+                                  y=gimbal_angle*180/np.pi)
             self.sim.add_subplot_point(subplot_index=self.p2,
-                                       artist_index=self.a2[0],
-                                       x=self.sim.time,
-                                       y=torque)
+                                  artist_index=self.a2[0],
+                                  x=self.sim.time,
+                                  y=torque)
             
             ###################################################################
             # STEP THE SIMULATION
@@ -312,22 +320,30 @@ class Cart_sim():
                 # Reset the controller
                 controller.reset()
                 
+                # Set the rotor speed
+                self.sim.set_joint_velocity(urdf_obj=self.cmg_obj,
+                                            joint_name='cage_to_wheel',
+                                            velocity = rotor_velocity,
+                                            physics=True)
+                
                 # Reset the history
                 time_history = []
-                pendulum_angle_history =[]
-                pendulum_velocity_history = []
-                wheel_angle_history =[]
-                wheel_velocity_history = []
+                frame_angle_history =[]
+                frame_velocity_history = []
+                gimbal_angle_history =[]
+                gimbal_velocity_history = []
+                rotor_velocity_history = []
                 torque_history = []
                 
                 
         # When the simulation is done running, gather all simulation data 
         # into a dictionary and return it
         data = {'time' : time_history,
-                'pendulum_angle' : pendulum_angle_history,
-                'wheel_angle' : wheel_angle_history,
-                'pendulum_velocity' : pendulum_velocity_history,
-                'wheel_velocity' : wheel_velocity_history,
+                'frame_angle' : frame_angle_history,
+                'gimbal_angle' : gimbal_angle_history,
+                'frame_velocity' : frame_velocity_history,
+                'gimbal_velocity' : gimbal_velocity_history,
+                'rotor_velocity' : rotor_velocity_history,
                 'torque' : torque_history}
         return data
             
