@@ -1,6 +1,6 @@
-# condynsate
+# AE353-SP24
 
- [condynsate](https://github.com/GrayKS3248/condynsate) is a dynamic system simulation and visualization tool built with [PyBullet](https://pybullet.org/wordpress/) and [MeshCat](https://github.com/meshcat-dev/meshcat-python). It automatically simulates multiple objects and their interactions as described by [.urdf](http://wiki.ros.org/urdf), [.stl](https://en.wikipedia.org/wiki/STL_(file_format)), and [.obj](https://en.wikipedia.org/wiki/Wavefront_.obj_file) files and can render real time visualizations in a web browser.
+Below is an installation guide for all the software that will be used in the Spring 2024 semester of AE353 at UIUC.
 
 # Windows Installation
 ## 1. Install Git for Windows
@@ -14,97 +14,97 @@ If you do not have Git already installed, download the most recent Git installer
 
 * Click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_2.png?raw=true" alt="git_2" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_2.png?raw=true" alt="git_2" width="495" height="375"/>
 
 
 
 * Click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_3.png?raw=true" alt="git_3" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_3.png?raw=true" alt="git_3" width="495" height="375"/>
 
 
 
 * Click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_4.png?raw=true" alt="git_4" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_4.png?raw=true" alt="git_4" width="495" height="375"/>
 
 
 
 * Select **Let Git decide** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_5.png?raw=true" alt="git_5" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_5.png?raw=true" alt="git_5" width="495" height="375"/>
 
 
 
 * Select **Use Git from Git Bash only** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_6.png?raw=true" alt="git_6" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_6.png?raw=true" alt="git_6" width="495" height="375"/>
 
 
 
 * Select **Use bundled OpenSSH** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_7.png?raw=true" alt="git_7" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_7.png?raw=true" alt="git_7" width="495" height="375"/>
 
 
 
 * Select **Use the OpenSSL library** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_8.png?raw=true" alt="git_8" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_8.png?raw=true" alt="git_8" width="495" height="375"/>
 
 
 
 * Select **Checkout Windows-style, commit Unix-style line endings** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_9.png?raw=true" alt="git_9" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_9.png?raw=true" alt="git_9" width="495" height="375"/>
 
 
 
 * Select **Use Windows' default console window** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_10.png?raw=true" alt="git_10" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_10.png?raw=true" alt="git_10" width="495" height="375"/>
 
 
 
 * Select **Fast-forward or merge** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_11.png?raw=true" alt="git_11" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_11.png?raw=true" alt="git_11" width="495" height="375"/>
 
 
 
 * Select **Git Credential Manager** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_12.png?raw=true" alt="git_12" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_12.png?raw=true" alt="git_12" width="495" height="375"/>
 
 
 
 * Check only **Enable file system caching** then click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_13.png?raw=true" alt="git_13" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_13.png?raw=true" alt="git_13" width="495" height="375"/>
 
 
 
 * Make sure nothing is checked then click **install**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_14.png?raw=true" alt="git_14" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_14.png?raw=true" alt="git_14" width="495" height="375"/>
 
 
 
 * Once installation is finished, click **finish**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_15.png?raw=true" alt="git_15" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_15.png?raw=true" alt="git_15" width="495" height="375"/>
 
 
 
 * Navigate to **C:\Program Files\Git** in your file explorer.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_16.png?raw=true" alt="git_16" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_16.png?raw=true" alt="git_16" width="495" height="375"/>
 
 
 
 * To create a desktop shortcut to git-cmd (the application that will be used to pull and push Git repositories), right click on **git-cmd**, navigate to **Send to**, then click **Desktop (create shortcut)**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_17.png?raw=true" alt="git_17" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_17.png?raw=true" alt="git_17" width="495" height="375"/>
 
 
 
@@ -117,68 +117,117 @@ Git --version
 
 * You should get a response that lists the version of Git you just installed.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/git_18.png?raw=true" alt="git_18" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_18.png?raw=true" alt="git_18" width="495" height="375"/>
 
 
 
 Git is now installed on your machine.
 
+## 2. Clone the ae353-sp24 Repository using Git
+
+- Open **git-cmd** and navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the  change directory command.
+
+To move up a directory, type
+
+```bash
+cd ..
+```
+
+To move down a directory, type
+
+```bash
+cd DIR
+```
+
+Where ``DIR`` is the name of the directory you want to move into.
+
+For example, if you start in:
+
+```bash
+C:\Program Files\Git
+```
+
+and want to get to
+
+```bash
+C:\Example\Projects
+```
+
+you would type the following commands:
+
+```bash
+cd ..
+cd ..
+cd Example
+cd Projects
+```
 
 
-## 2. Install Miniconda for Windows
+
+- Clone the repository into the current directory by typing the command
+
+```bash
+git clone https://github.com/w-chang/ae353-sp24.git
+```
+
+The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
+
+
+
+## 3. Install Miniconda for Windows
 If you do not have Miniconda already installed, download the most recent Miniconda installer for Windows 64 from the [miniconda website](https://docs.conda.io/projects/miniconda/en/latest/) or just click [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Miniconda3-latest-Windows-x86_64 and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
 
 * Once the wizard is running, click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_1.png?raw=true" alt="conda_1" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_1.png?raw=true" alt="conda_1" width="495" height="375"/>
 
 
 
 * Click **I Agree**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_2.png?raw=true" alt="conda_2" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_2.png?raw=true" alt="conda_2" width="495" height="375"/>
 
 
 
 * Ensure **Just Me (recommended)** is selected and click **Next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_3.png?raw=true" alt="conda_3" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_3.png?raw=true" alt="conda_3" width="495" height="375"/>
 
 
 
 * Click **Next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_4.png?raw=true" alt="conda_4" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_4.png?raw=true" alt="conda_4" width="495" height="375"/>
 
 
 
 * Ensure **Create start menu shortcuts (supported packages only)** is checked and **Register Miniconda3 as my default Python 3.11** is ***NOT CHECKED***.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_5.png?raw=true" alt="conda_5" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_5.png?raw=true" alt="conda_5" width="495" height="375"/>
 
 
 
 * Once installation is complete, click **next**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_6.png?raw=true" alt="conda_6" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_6.png?raw=true" alt="conda_6" width="495" height="375"/>
 
 
 
 * You may deselected **Getting started with Conda** and **Welcome to Anaconda** then click **Finish**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_7.png?raw=true" alt="conda_7" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_7.png?raw=true" alt="conda_7" width="495" height="375"/>
 
 
 
 * Navigate to the Windows Start Menu folder located at **C:\Users\USER NAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Miniconda3 (64-bit)**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_8.png?raw=true" alt="conda_8" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_8.png?raw=true" alt="conda_8" width="495" height="375"/>
 
 
 
 * To create a desktop shortcut to Anaconda Prompt (the application that will be used interact with Miniconda), right click on **Anaconda Prompt (Miniconda3)**, navigate to **Send to**, then click **Desktop (create shortcut)**.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_9.png?raw=true" alt="conda_9" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_9.png?raw=true" alt="conda_9" width="495" height="375"/>
 
 
 
@@ -191,7 +240,7 @@ conda --version
 
 * You should get a response that lists the version of Miniconda you just installed.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/conda_10.png?raw=true" alt="conda_10" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/conda_10.png?raw=true" alt="conda_10" width="495" height="375"/>
 
 
 
@@ -199,7 +248,7 @@ Miniconda is now installed on your machine.
 
 
 
-## 3. Install condynsate in a Miniconda virtual environment
+## 4. Install condynsate in a Miniconda virtual environment
 To install condynsate in a Miniconda virtual environment, open **Anaconda Prompt (Miniconda3)** and type
 
 ```bash
@@ -207,7 +256,7 @@ conda create -n condynsate python==3.10
 ```
 Press enter.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/condynsate_1.png?raw=true" alt="condynsate_1" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/condynsate_1.png?raw=true" alt="condynsate_1" width="495" height="375"/>
 
 
 
@@ -218,7 +267,7 @@ y
 ```
 then press enter.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/condynsate_2.png?raw=true" alt="condynsate_2" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/condynsate_2.png?raw=true" alt="condynsate_2" width="495" height="375"/>
 
 
 
@@ -229,7 +278,7 @@ conda activate condynsate
 ```
 then press enter.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/condynsate_3.png?raw=true" alt="condynsate_3" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/condynsate_3.png?raw=true" alt="condynsate_3" width="495" height="375"/>
 
 
 
@@ -242,13 +291,13 @@ changes to
 ```
 (condynsate)
 ```
-at the begining of the prompt line. Once the virtual environment is activated, type
+at the beginning of the prompt line. Once the virtual environment is activated, type
 ```bash
 pip install condynsate[edu]
 ```
 and press enter. This installs condynsate and some other optional dependencies that are helpful when using condynsate.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/condynsate_4.png?raw=true" alt="condynsate_4" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/condynsate_4.png?raw=true" alt="condynsate_4" width="495" height="375"/>
 
 
 
@@ -267,7 +316,7 @@ condynsate.__version__
 ```
 and press enter. If condynsate is installed correctly, the current version will be shown.
 
-<img src="https://github.com/GrayKS3248/condynsate/blob/main/images/condynsate_5.png?raw=true" alt="condynsate_5" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/condynsate_5.png?raw=true" alt="condynsate_5" width="495" height="375"/>
 
 
 
@@ -281,7 +330,55 @@ to quit the Python shell and exit out of the Anaconda prompt.
 
 
 # Linux Installation
-## 1. Install Miniconda for Linux
+
+## 1. Clone the ae353-sp24 Repository using Git
+
+Open the terminal. To open the terminal press **ctrl+alt+t**. Navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the  change directory command.
+
+To move up a directory, type
+
+```bash
+cd ..
+```
+
+To move down a directory, type
+
+```bash
+cd DIR
+```
+
+Where ``DIR`` is the name of the directory you want to move into.
+
+For example, if you start in:
+
+```bash
+user@name:~
+```
+
+and want to get to
+
+```bash
+user@name:~/Documents
+```
+
+you would type the following command:
+
+```bash
+cd Documents
+```
+
+Now, clone the repository into the current directory by typing the command
+
+```bash
+git clone https://github.com/w-chang/ae353-sp24.git
+```
+
+The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
+
+
+
+## 2. Install Miniconda for Linux
+
 If you do not have Miniconda already installed, run these four commands in the terminal to quickly and quietly install the latest 64-bit version of the installer. To open the terminal press **ctrl+alt+t**.
 
 ```bash
@@ -306,7 +403,7 @@ You should get a response that lists the version of Miniconda you just installed
 
 
 
-## 2. Install condynsate in a Miniconda virtual environment
+## 3. Install condynsate in a Miniconda virtual environment
 To install condynsate in a Miniconda virtual environment, open the terminal and create a new virtual environment with python 3.10. To open the terminal press **ctrl+alt+t**. When the terminal is open, run the command:
 ```bash
 conda create -n condynsate python==3.10
@@ -429,7 +526,70 @@ You should get a response that lists the version of Git you just installed. If y
 
 
 
-## 3. Install condynsate in a Miniconda virtual environment
+## 3. Clone the ae353-sp24 Repository using Git
+
+Open the terminal. To open the terminal do one of the following:
+
+- Click the Launchpad icon ![img](https://help.apple.com/assets/63FFD63D71728623E706DB4F/63FFD63E71728623E706DB56/en_US/a1f94c9ca0de21571b88a8bf9aef36b8.png) in the Dock, type Terminal in the search field, then click Terminal.
+- In the Finder ![img](https://help.apple.com/assets/63FFD63D71728623E706DB4F/63FFD63E71728623E706DB56/en_US/058e4af8e726290f491044219d2eee73.png), open the /Applications/Utilities folder, then double-click Terminal.
+
+Ensure that you are in the base conda environment by running the command:
+
+```bash
+conda deactivate
+```
+
+The left hand side of the prompt line in the terminal should read
+
+```bash
+(base)
+```
+
+Navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the  change directory command.
+
+To move up a directory, type
+
+```bash
+cd ..
+```
+
+To move down a directory, type
+
+```bash
+cd DIR
+```
+
+Where ``DIR`` is the name of the directory you want to move into.
+
+For example, if you start in:
+
+```bash
+user@name ~ %
+```
+
+and want to get to
+
+```bash
+user@name ~/Documents %
+```
+
+you would type the following command:
+
+```bash
+cd Documents
+```
+
+Now, clone the repository into the current directory by typing the command
+
+```bash
+git clone https://github.com/w-chang/ae353-sp24.git
+```
+
+The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
+
+## 
+
+## 4. Install condynsate in a Miniconda virtual environment
 
 To install condynsate in a Miniconda virtual environment, open the terminal and create a new virtual environment with python 3.10. To open the terminal do one of the following:
 
@@ -481,8 +641,3 @@ quit()
 ```
 
 to quit the Python shell.
-
-
-
-# Usage
-For examples of usage, see [examples](https://github.com/GrayKS3248/condynsate/tree/main/examples).
