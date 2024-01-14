@@ -2,7 +2,10 @@
 
 Below is an installation guide for all the software that will be used in the Spring 2024 semester of AE353 at UIUC.
 
+
+
 # Windows Installation
+
 ## 1. Install Git for Windows
 If you do not have Git already installed, download the most recent Git installer for Windows 64 from the [git-scm website](https://git-scm.com/download/win) or just click [here](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Git-VERSION-64-bit and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
 
