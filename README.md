@@ -117,11 +117,11 @@ Git --version
 
 * You should get a response that lists the version of Git you just installed.
 
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_18.png?raw=true" alt="git_18" width="495" height="375"/>
-
-
-
 Git is now installed on your machine.
+
+
+
+
 
 ## 2. Clone the ae353-sp24 Repository using Git
 
@@ -162,8 +162,6 @@ cd Example
 cd Projects
 ```
 
-
-
 - Clone the repository into the current directory by typing the command
 
 ```bash
@@ -171,6 +169,8 @@ git clone https://github.com/w-chang/ae353-sp24.git
 ```
 
 The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
+
+
 
 
 
@@ -247,7 +247,7 @@ Miniconda is now installed on your machine.
 To install condynsate in a Miniconda virtual environment, open **Anaconda Prompt (Miniconda3)** and type
 
 ```bash
-conda create -n ae353 python==3.10
+conda create -n ae353 python==3.8.18
 ```
 Press enter.
 
@@ -276,7 +276,7 @@ changes to
 ```
 at the beginning of the prompt line. Once the virtual environment is activated, type
 ```bash
-pip install condynsate control sympy spyder notebook
+pip install condynsate[edu]
 ```
 and press enter. This installs condynsate and some other optional dependencies that are helpful when using condynsate.
 
@@ -301,6 +301,8 @@ condynsate is now installed on your machine. You may type
 quit()
 ```
 to quit the Python shell and exit out of the Anaconda prompt.
+
+
 
 
 
@@ -352,6 +354,8 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 
 
+
+
 ## 2. Install Miniconda for Linux
 
 If you do not have Miniconda already installed, run these four commands in the terminal to quickly and quietly install the latest 64-bit version of the installer. To open the terminal press **ctrl+alt+t**.
@@ -378,10 +382,12 @@ You should get a response that lists the version of Miniconda you just installed
 
 
 
+
+
 ## 3. Install condynsate in a Miniconda virtual environment
-To install condynsate in a Miniconda virtual environment, open the terminal and create a new virtual environment with python 3.10. To open the terminal press **ctrl+alt+t**. When the terminal is open, run the command:
+To install condynsate in a Miniconda virtual environment, open the terminal and create a new virtual environment with python 3.8.18. To open the terminal press **ctrl+alt+t**. When the terminal is open, run the command:
 ```bash
-conda create -n ae353 python==3.10
+conda create -n ae353 python==3.8.18
 ```
 
 When complete activate the new environment
@@ -399,7 +405,7 @@ changes to
 
 Install condynsate with edu dependencies to the environment using the pip package manager: 
 ```bash
-pip install condynsate control sympy spyder notebook
+pip install condynsate[edu]
 ```
 
 Once the installation is complete, you can confirm that condynsate has been successfully installed and the virtual environment is set up correctly by running the following three commands:
@@ -413,6 +419,8 @@ If condynsate is installed correctly, the current version will be shown. condyns
 quit()
 ```
 to quit the Python shell.
+
+
 
 
 
@@ -448,6 +456,8 @@ You should get a response that lists the version of Miniconda you just installed
 
 
 
+
+
 ## 2. Install Git for MacOS
 
 If you do not have Git already installed, install it via Homebew. First, open the terminal. To open the terminal do one of the following:
@@ -474,6 +484,8 @@ git --version
 ```
 
 You should get a response that lists the version of Git you just installed. If you do not, more help on installation can be found [here](https://git-scm.com/download/mac).
+
+
 
 
 
@@ -528,9 +540,11 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 
 
+
+
 ## 4. Install condynsate in a Miniconda virtual environment
 
-To install condynsate in a Miniconda virtual environment, open the terminal and create a new virtual environment with python 3.10. To open the terminal do one of the following:
+To install condynsate in a Miniconda virtual environment, open the terminal and create a new virtual environment with python 3.8.18. To open the terminal do one of the following:
 
 - Click the Launchpad icon ![img](https://help.apple.com/assets/63FFD63D71728623E706DB4F/63FFD63E71728623E706DB56/en_US/a1f94c9ca0de21571b88a8bf9aef36b8.png) in the Dock, type Terminal in the search field, then click Terminal.
 - In the Finder ![img](https://help.apple.com/assets/63FFD63D71728623E706DB4F/63FFD63E71728623E706DB56/en_US/058e4af8e726290f491044219d2eee73.png), open the /Applications/Utilities folder, then double-click Terminal.
@@ -538,7 +552,7 @@ To install condynsate in a Miniconda virtual environment, open the terminal and 
 When the terminal is open, run the command: 
 
 ```bash
-conda create -n ae353 python==3.10
+conda create -n ae353 python==3.8.18
 ```
 
 When complete activate the new environment
