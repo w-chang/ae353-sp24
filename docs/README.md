@@ -2,13 +2,10 @@
 
 ## Table of Contents
 
-[**Introduction**](#Introduction)
+* [**Introduction**](#Introduction)
 
-
-
-[**Windows Usage**](#Windows Usage)
-
-​	[Windows Command Line Basics](#Windows Command Line Basics)
+* [**Windows Usage**](#Windows Usage)
+  * [Windows Command Line Basics](#Windows Command Line Basics)
 
 ​		[How to open an Anaconda Prompt in Windows](#How to open an Anaconda Prompt in Windows)
 
