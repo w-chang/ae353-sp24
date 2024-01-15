@@ -2,7 +2,95 @@
 
 ## Table of Contents
 
+[**Introduction**](#Introduction)
 
+[**Windows Usage**](#Windows Usage)
+
+​	[Windows Command Line Basics](#Windows Command Line Basics)
+
+​		[How to open an Anaconda Prompt in Windows](#How to open an Anaconda Prompt in Windows)
+
+​		[How to run a command in Windows](#How to run a command in Windows)
+
+​		[How to change the working directory in Windows](#How to change the working directory in Windows)
+
+​	[Windows Installation](#Windows Installation)	
+
+​		[1. Install Git for Windows](#1. Install Git for Windows)
+
+​		[2. Clone the ae353-sp24 Repository using Git in Windows](#2. Clone the ae353-sp24 Repository using Git in Windows)
+
+​		[3. Install Miniconda for Windows](#3. Install Miniconda for Windows)
+
+​		[4. Install condynsate in a Miniconda virtual environment in Windows](#4. Install condynsate in a Miniconda virtual environment in Windows)
+
+​	[Running Projects in Windows](#Running Projects in Windows)
+
+​		[1. Change your working directory in Windows](#1. Change your working directory in Windows)
+
+​		[2. Get the latest version of the code in Windows](#2. Get the latest version of the code in Windows)
+
+​		[3. Activate your Conda environment in Windows](#3. Activate your Conda environment in Windows)
+
+​		[4. Start a Jupyter Notebook in Windows](#4. Start a Jupyter Notebook in Windows)
+
+[**Linux Usage**](#Linux Usage)
+
+​	[Linux Command Line Basics](#Linux Command Line Basics)
+
+​		[How to open the Terminal in Linux](#How to open the Terminal in Linux)
+
+​		[How to run a command in Linux](#How to run a command in Linux)
+
+​		[How to change the working directory in Linux](#How to change the working directory in Linux)
+
+​	[Linux Installation](#Linux Installation)
+
+​		[1. Clone the ae353-sp24 Repository using Git in Linux](#1. Clone the ae353-sp24 Repository using Git in Linux)
+
+​		[2. Install Miniconda for Linux](#2. Install Miniconda for Linux)
+
+​		[3. Install condynsate in a Miniconda virtual environment in Linux](#3. Install condynsate in a Miniconda virtual environment in Linux)
+
+​	[Running Projects in Linux](#Running Projects in Linux)
+
+​		[1. Change your working directory in Linux](#1. Change your working directory in Linux)
+
+​		[2. Get the latest version of the code in Linux](#2. Get the latest version of the code in Linux)
+
+​		[3. Activate your Conda environment in Linux](#3. Activate your Conda environment in Linux)
+
+​		[4. Start a Jupyter Notebook in Linux](#4. Start a Jupyter Notebook in Linux)
+
+[**MacOS Usage**](#MacOS Usage)
+
+​	[MacOS Command Line Basics](#MacOS Command Line Basics)
+
+​		[How to open the Terminal in MacOS](#How to open the Terminal in MacOS)
+
+​		[How to run a command in MacOS](#How to run a command in MacOS)
+
+​		[How to change the working directory in MacOS](#How to change the working directory in MacOS)
+
+​	[MacOS Installation](#MacOS Installation)
+
+​		[1. Install Git for MacOS](#1. Install Git for MacOS)
+
+​		[2. Clone the ae353-sp24 Repository using Git in MacOS](#2. Clone the ae353-sp24 Repository using Git in MacOS)
+
+​		[3. Install Miniconda for MacOS](#3. Install Miniconda for MacOS)
+
+​		[4. Install condynsate in a Miniconda virtual environment in MacOS](#4. Install condynsate in a Miniconda virtual environment in MacOS)
+
+​	[Running Projects in MacOS](#Running Projects in MacOS)
+
+​		[1. Change your working directory in MacOS](#1. Change your working directory in MacOS)
+
+​		[2. Get the latest version of the code in MacOS](#2. Get the latest version of the code in MacOS)
+
+​		[3. Activate your Conda environment in MacOS](#3. Activate your Conda environment in MacOS)
+
+​		[4. Start a Jupyter Notebook in MacOS](#4. Start a Jupyter Notebook in MacOS)
 
 
 
@@ -188,7 +276,7 @@ If Git is installed correctly, you should get a response that lists the version 
 
 
 
-### 2. Clone the ae353-sp24 Repository using Git in Windows
+#### 2. Clone the ae353-sp24 Repository using Git in Windows
 
 Open **git-cmd** and navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the [change directory command](#How to change the working directory).
 
@@ -202,7 +290,7 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 
 
-### 3. Install Miniconda for Windows
+#### 3. Install Miniconda for Windows
 If you do not have Miniconda already installed, download the most recent Miniconda installer for Windows 64 from the [miniconda website](https://docs.conda.io/projects/miniconda/en/latest/) or just click [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Miniconda3-latest-Windows-x86_64 and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
 
 Once the wizard is running, click **next**.
@@ -269,7 +357,7 @@ If Miniconda is installed correctly, you should get a response that lists the ve
 
 
 
-### 4. Install condynsate in a Miniconda virtual environment
+#### 4. Install condynsate in a Miniconda virtual environment in Windows
 To install condynsate in a Miniconda virtual environment, open **Anaconda Prompt (Miniconda3)** and run the command
 
 ```bash
@@ -316,13 +404,13 @@ to quit the Python shell and exit out of the Anaconda prompt.
 
 ### Running Projects in Windows
 
-#### 1. Change your working directory
+#### 1. Change your working directory in Windows
 
 Open an **Anaconda Prompt** and change your working directory to wherever you cloned this repository.
 
 
 
-#### 2. Get the latest version of the code
+#### 2. Get the latest version of the code in Windows
 
 Run the commands
 
@@ -335,7 +423,7 @@ Do not worry, this will not overwrite any of your own work. If you see any error
 
 
 
-#### 3. Activate your Conda environment
+#### 3. Activate your Conda environment in Windows
 
 Run the command
 
@@ -347,7 +435,7 @@ You should see the prefix to your prompt change from `(base)` to `(ae353)`. This
 
 
 
-#### 4. Start a jupyter notebook
+#### 4. Start a Jupyter Notebook in Windows
 
 Run the command
 
@@ -379,7 +467,7 @@ When we say "run a command," what we mean is to type something into the window o
 
 
 
-#### How to change the working directory in Windows
+#### How to change the working directory in Linux
 
 All the files on your computer are organized in folders, which are commonly referred to as "directories." When you are working on the command line, you are working in one of these directories. Commands you run can find files in that directory, but cannot (by default) find files in other directories.
 
@@ -401,7 +489,7 @@ cd ..
 
 ### Linux Installation
 
-#### 1. Clone the ae353-sp24 Repository using Git
+#### 1. Clone the ae353-sp24 Repository using Git in Linux
 
 Open the terminal. Navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
 
@@ -413,7 +501,7 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 
 
-### 2. Install Miniconda for Linux
+#### 2. Install Miniconda for Linux
 
 If you do not have Miniconda already installed, run these four commands in the Terminal to quickly and quietly install the latest 64-bit version of the installer.
 
@@ -439,7 +527,7 @@ You should get a response that lists the version of Miniconda you just installed
 
 
 
-### 3. Install condynsate in a Miniconda virtual environment
+#### 3. Install condynsate in a Miniconda virtual environment in Linux
 To install condynsate in a Miniconda virtual environment, open the Terminal and create a new virtual environment with python 3.8.18. To do this, run the command
 ```bash
 conda create -n ae353 python==3.8.18
@@ -472,13 +560,13 @@ to quit the Python shell.
 
 ### Running Projects in Linux
 
-#### 1. Change your working directory
+#### 1. Change your working directory in Linux
 
 Open the Terminal and change your working directory to wherever you cloned this repository.
 
 
 
-#### 2. Get the latest version of the code
+#### 2. Get the latest version of the code in Linux
 
 Run the commands
 
@@ -491,7 +579,7 @@ Do not worry, this will not overwrite any of your own work. If you see any error
 
 
 
-#### 3. Activate your Conda environment
+#### 3. Activate your Conda environment in Linux
 
 Run the command
 
@@ -503,7 +591,7 @@ You should see the prefix to your prompt change from `(base)` to `(ae353)`. This
 
 
 
-#### 4. Start a Jupyter Notebook
+#### 4. Start a Jupyter Notebook in Linux
 
 Run the command
 
@@ -523,7 +611,7 @@ A browser window should open with the Jupyter Notebook interface. You can now na
 
 ### MacOS Command Line Basics
 
-#### How to open the Terminal
+#### How to open the Terminal in MacOS
 
 When we say "open a terminal," what we mean is to start the **Terminal** application. Here are two ways to do that:
 
@@ -534,7 +622,7 @@ See documentation on [Open Terminal](https://support.apple.com/guide/terminal/op
 
 
 
-#### How to run a command
+#### How to run a command in MacOS
 
 When we say "run a command," what we mean is to type something into the Terminal and press return. For example, suppose we said:
 
@@ -551,7 +639,7 @@ See documentation on [Execute commands and run tools in Terminal on Mac for more
 
 
 
-#### How to change the working directory
+#### How to change the working directory in MacOS
 
 All the files on your computer are organized in folders, which are commonly referred to as "directories." When you are working on the command line in a terminal, you are working in one of these directories. Commands you run can find files in that directory, but cannot (by default) find files in other directories.
 
@@ -582,7 +670,47 @@ See documentation on [Specify files and folders in Terminal on Mac](https://supp
 
 ### MacOS Installation
 
-#### 1. Install Miniconda for MacOS
+#### 1. Install Git for MacOS
+
+If you do not have Git already installed, install it via Homebew. First, open the terminal.
+
+Next, type the command:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**Restart the terminal.** This will install [Homebrew](https://brew.sh/) on your machine. Homebrew is a package manager for MacOS. 
+
+Next , install Git via Homebrew by running the command
+
+```bash
+brew install git
+```
+
+This installs Git to your system. To verify that Git installed correctly,  run the command 
+
+```bash
+git --version
+```
+
+You should get a response that lists the version of Git you just installed. If you do not, more help on installation can be found [here](https://git-scm.com/download/mac).
+
+
+
+#### 2. Clone the ae353-sp24 Repository using Git in MacOS
+
+Open the terminal. Navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
+
+```bash
+git clone https://github.com/w-chang/ae353-sp24.git
+```
+
+The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
+
+
+
+#### 3. Install Miniconda for MacOS
 
 If you do not have Miniconda already installed, open the Terminal.
 
@@ -611,47 +739,7 @@ You should get a response that lists the version of Miniconda you just installed
 
 
 
-#### 2. Install Git for MacOS
-
-If you do not have Git already installed, install it via Homebew. First, open the terminal.
-
-Next, type the command:
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-**Restart the terminal.** This will install [Homebrew](https://brew.sh/) on your machine. Homebrew is a package manager for MacOS. 
-
-Next , install Git via Homebrew by running the command
-
-```bash
-brew install git
-```
-
-This installs Git to your system. To verify that Git installed correctly,  run the command 
-
-```bash
-git --version
-```
-
-You should get a response that lists the version of Git you just installed. If you do not, more help on installation can be found [here](https://git-scm.com/download/mac).
-
-
-
-#### 3. Clone the ae353-sp24 Repository using Git
-
-Open the terminal. Navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
-
-```bash
-git clone https://github.com/w-chang/ae353-sp24.git
-```
-
-The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
-
-
-
-#### 4. Install condynsate in a Miniconda virtual environment
+#### 4. Install condynsate in a Miniconda virtual environment in MacOS
 
 To install condynsate in a Miniconda virtual environment, open the Terminal and create a new virtual environment with python 3.8.18. To do this, run the command
 
@@ -693,13 +781,13 @@ to quit the Python shell.
 
 ### Running Projects in MacOS
 
-#### 1. Change your working directory
+#### 1. Change your working directory in MacOS
 
 Open the Terminal and change your working directory to wherever you cloned this repository.
 
 
 
-#### 2. Get the latest version of the code
+#### 2. Get the latest version of the code in MacOS
 
 Run the commands
 
@@ -712,7 +800,7 @@ Do not worry, this will not overwrite any of your own work. If you see any error
 
 
 
-#### 3. Activate your Conda environment
+#### 3. Activate your Conda environment in MacOS
 
 Run the command
 
@@ -724,7 +812,7 @@ You should see the prefix to your prompt change from `(base)` to `(ae353)`. This
 
 
 
-#### 4. Start a Jupyter Notebook
+#### 4. Start a Jupyter Notebook in MacOS
 
 Run the command
 
