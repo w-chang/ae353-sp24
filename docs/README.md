@@ -34,63 +34,63 @@
 
     * [4. Start a Jupyter Notebook in Windows](#4.-Start-a-Jupyter-Notebook-in-Windows)
 
-[**Linux Usage**](#Linux Usage)
+* [**Linux Usage**](#Linux-Usage)
 
-​	[Linux Command Line Basics](#Linux Command Line Basics)
+  * [Linux Command Line Basics](#Linux-Command-Line-Basics)
 
-​		[How to open the Terminal in Linux](#How to open the Terminal in Linux)
+    * [How to open the Terminal in Linux](#How-to-open-the-Terminal-in-Linux)
 
-​		[How to run a command in Linux](#How to run a command in Linux)
+    * [How to run a command in Linux](#How-to-run-a-command-in-Linux)
 
-​		[How to change the working directory in Linux](#How to change the working directory in Linux)
+    * [How to change the working directory in Linux](#How-to-change-the-working-directory-in-Linux)
 
-​	[Linux Installation](#Linux Installation)
+  * [Linux Installation](#Linux-Installation)
 
-​		[1. Clone the ae353-sp24 Repository using Git in Linux](#1. Clone the ae353-sp24 Repository using Git in Linux)
+    * [1. Clone the ae353-sp24 Repository using Git in Linux](#1.-Clone-the-ae353-sp24-Repository-using-Git-in-Linux)
 
-​		[2. Install Miniconda for Linux](#2. Install Miniconda for Linux)
+    * [2. Install Miniconda for Linux](#2.-Install-Miniconda-for-Linux)
 
-​		[3. Install condynsate in a Miniconda virtual environment in Linux](#3. Install condynsate in a Miniconda virtual environment in Linux)
+    * [3. Install condynsate in a Miniconda virtual environment in Linux](#3.-Install-condynsate-in-a-Miniconda-virtual-environment-in-Linux)
 
-​	[Running Projects in Linux](#Running Projects in Linux)
+  * [Running Projects in Linux](#Running-Projects-in-Linux)
 
-​		[1. Change your working directory in Linux](#1. Change your working directory in Linux)
+    * [1. Change your working directory in Linux](#1.-Change-your-working-directory-in-Linux)
 
-​		[2. Get the latest version of the code in Linux](#2. Get the latest version of the code in Linux)
+    * [2. Get the latest version of the code in Linux](#2.-Get-the-latest-version-of-the-code-in-Linux)
 
-​		[3. Activate your Conda environment in Linux](#3. Activate your Conda environment in Linux)
+    * [3. Activate your Conda environment in Linux](#3.-Activate-your-Conda-environment-in-Linux)
 
-​		[4. Start a Jupyter Notebook in Linux](#4. Start a Jupyter Notebook in Linux)
+    * [4. Start a Jupyter Notebook in Linux](#4.-Start-a-Jupyter-Notebook-in-Linux)
 
-[**MacOS Usage**](#MacOS Usage)
+* [**MacOS Usage**](#MacOS-Usage)
 
-​	[MacOS Command Line Basics](#MacOS Command Line Basics)
+  * [MacOS Command Line Basics](#MacOS-Command-Line-Basics)
 
-​		[How to open the Terminal in MacOS](#How to open the Terminal in MacOS)
+    * [How to open the Terminal in MacOS](#How-to-open-the-Terminal-in-MacOS)
 
-​		[How to run a command in MacOS](#How to run a command in MacOS)
+    * [How to run a command in MacOS](#How-to-run-a-command-in-MacOS)
 
-​		[How to change the working directory in MacOS](#How to change the working directory in MacOS)
+    * [How to change the working directory in MacOS](#How-to-change-the-working-directory-in-MacOS)
 
-​	[MacOS Installation](#MacOS Installation)
+  * [MacOS Installation](#MacOS-Installation)
 
-​		[1. Install Git for MacOS](#1. Install Git for MacOS)
+    * [1. Install Git for MacOS](#1.-Install-Git-for-MacOS)
 
-​		[2. Clone the ae353-sp24 Repository using Git in MacOS](#2. Clone the ae353-sp24 Repository using Git in MacOS)
+    * [2. Clone the ae353-sp24 Repository using Git in MacOS](#2.-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
 
-​		[3. Install Miniconda for MacOS](#3. Install Miniconda for MacOS)
+    * [3. Install Miniconda for MacOS](#3.-Install-Miniconda-for-MacOS)
 
-​		[4. Install condynsate in a Miniconda virtual environment in MacOS](#4. Install condynsate in a Miniconda virtual environment in MacOS)
+    * [4. Install condynsate in a Miniconda virtual environment in MacOS](#4.-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
 
-​	[Running Projects in MacOS](#Running Projects in MacOS)
+  * [Running Projects in MacOS](#Running-Projects-in-MacOS)
 
-​		[1. Change your working directory in MacOS](#1. Change your working directory in MacOS)
+    * [1. Change your working directory in MacOS](#1.-Change-your-working-directory-in-MacOS)
 
-​		[2. Get the latest version of the code in MacOS](#2. Get the latest version of the code in MacOS)
+    * [2. Get the latest version of the code in MacOS](#2.-Get-the-latest-version-of-the-code-in-MacOS)
 
-​		[3. Activate your Conda environment in MacOS](#3. Activate your Conda environment in MacOS)
+    * [3. Activate your Conda environment in MacOS](#3.-Activate-your-Conda-environment-in-MacOS)
 
-​		[4. Start a Jupyter Notebook in MacOS](#4. Start a Jupyter Notebook in MacOS)
+    * [4. Start a Jupyter Notebook in MacOS](#4.-Start-a-Jupyter-Notebook-in-MacOS)
 
 
 
