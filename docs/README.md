@@ -2,18 +2,19 @@
 
 ## Table of Contents
 
-* [**Introduction**](#Introduction)
+[**Introduction**](#Introduction)  
 
-* [**Windows Usage**](#Windows Usage)
-  * [Windows Command Line Basics](#Windows Command Line Basics)
+[**Windows Usage**](#Windows Usage)  
 
-​		[How to open an Anaconda Prompt in Windows](#How to open an Anaconda Prompt in Windows)
+​	[Windows Command Line Basics](#Windows Command Line Basics)  
 
-​		[How to run a command in Windows](#How to run a command in Windows)
+​		[How to open an Anaconda Prompt in Windows](#How to open an Anaconda Prompt in Windows)  
 
-​		[How to change the working directory in Windows](#How to change the working directory in Windows)
+​		[How to run a command in Windows ](#How to run a command in Windows) 
 
-​	[Windows Installation](#Windows Installation)	
+​		[How to change the working directory in Windows](#How to change the working directory in Windows)  
+
+ 	[Windows Installation](#Windows Installation)	
 
 ​		[1. Install Git for Windows](#1. Install Git for Windows)
 
