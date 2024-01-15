@@ -102,7 +102,7 @@ This repository supports the course **AE353: Aerospace Control Systems** that is
 
 We do a lot of simulation in this class and make frequent use of the [condynsate](https://github.com/GrayKS3248/condynsate) educational tool. This tool was built by [Grayson Schaer](http://bretl.csl.illinois.edu/people) during the 2023 Fall semester at the University of Illinois at Urbana-Champaign under the Grainger College of Engineering 2023-24 Strategic Instructional Innovations Program: Computational Tools for Dynamics and Control [grant](https://ae3.engineering.illinois.edu/files/2023/09/UIUC-SIIP-projects-2023-24.FINAL_-1.pdf). 
 
-condynsate provides real-time simulation and visualization of articulated bodies with nonlinear dynamics in Python. It was optimized for education and promotes easy in-class demonstrations and lab demos without physical equipment. Further, it encourages students to activate motor neurons, and simulates play during the learning process --both of which are beneficial to the processes of [memory and learning](https://doi.org/10.3390/educsci13070747).
+Condynsate provides real-time simulation and visualization of articulated bodies with nonlinear dynamics in Python. It was optimized for education and promotes easy in-class demonstrations and lab demos without physical equipment. Further, it encourages students to activate motor neurons, and simulates play during the learning process --both of which are beneficial to the processes of [memory and learning](https://doi.org/10.3390/educsci13070747).
 
 
 
