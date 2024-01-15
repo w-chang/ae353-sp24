@@ -16,23 +16,23 @@
 
   * [Windows Installation](#Windows-Installation)
 
-    * [1. Install Git for Windows](#1.-Install-Git-for-Windows)
+    * [1 Install Git for Windows](#1-Install-Git-for-Windows)
 
-    * [2. Clone the ae353-sp24 Repository using Git in Windows](#2.-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
+    * [2 Clone the ae353-sp24 Repository using Git in Windows](#2-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
 
-    * [3. Install Miniconda for Windows](#3.-Install-Miniconda-for-Windows)
+    * [3 Install Miniconda for Windows](#3-Install-Miniconda-for-Windows)
 
-    * [4. Install condynsate in a Miniconda virtual environment in Windows](#4.-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
+    * [4 Install condynsate in a Miniconda virtual environment in Windows](#4-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
 
   * [Running Projects in Windows](#Running-Projects-in-Windows)
 
-    * [1. Change your working directory in Windows](#1.-Change-your-working-directory-in-Windows)
+    * [1 Change your working directory in Windows](#1-Change-your-working-directory-in-Windows)
 
-    * [2. Get the latest version of the code in Windows](#2.-Get-the-latest-version-of-the-code-in-Windows)
+    * [2 Get the latest version of the code in Windows](#2-Get-the-latest-version-of-the-code-in-Windows)
 
-    * [3. Activate your Conda environment in Windows](#3.-Activate-your-Conda-environment-in-Windows)
+    * [3 Activate your Conda environment in Windows](#3-Activate-your-Conda-environment-in-Windows)
 
-    * [4. Start a Jupyter Notebook in Windows](#4.-Start-a-Jupyter-Notebook-in-Windows)
+    * [4 Start a Jupyter Notebook in Windows](#4-Start-a-Jupyter-Notebook-in-Windows)
 
 * [**Linux Usage**](#Linux-Usage)
 
@@ -46,21 +46,21 @@
 
   * [Linux Installation](#Linux-Installation)
 
-    * [1. Clone the ae353-sp24 Repository using Git in Linux](#1.-Clone-the-ae353-sp24-Repository-using-Git-in-Linux)
+    * [1 Clone the ae353-sp24 Repository using Git in Linux](#1-Clone-the-ae353-sp24-Repository-using-Git-in-Linux)
 
-    * [2. Install Miniconda for Linux](#2.-Install-Miniconda-for-Linux)
+    * [2 Install Miniconda for Linux](#2-Install-Miniconda-for-Linux)
 
-    * [3. Install condynsate in a Miniconda virtual environment in Linux](#3.-Install-condynsate-in-a-Miniconda-virtual-environment-in-Linux)
+    * [3 Install condynsate in a Miniconda virtual environment in Linux](#3-Install-condynsate-in-a-Miniconda-virtual-environment-in-Linux)
 
   * [Running Projects in Linux](#Running-Projects-in-Linux)
 
-    * [1. Change your working directory in Linux](#1.-Change-your-working-directory-in-Linux)
+    * [1 Change your working directory in Linux](#1-Change-your-working-directory-in-Linux)
 
-    * [2. Get the latest version of the code in Linux](#2.-Get-the-latest-version-of-the-code-in-Linux)
+    * [2 Get the latest version of the code in Linux](#2-Get-the-latest-version-of-the-code-in-Linux)
 
-    * [3. Activate your Conda environment in Linux](#3.-Activate-your-Conda-environment-in-Linux)
+    * [3 Activate your Conda environment in Linux](#3-Activate-your-Conda-environment-in-Linux)
 
-    * [4. Start a Jupyter Notebook in Linux](#4.-Start-a-Jupyter-Notebook-in-Linux)
+    * [4 Start a Jupyter Notebook in Linux](#4-Start-a-Jupyter-Notebook-in-Linux)
 
 * [**MacOS Usage**](#MacOS-Usage)
 
@@ -74,23 +74,23 @@
 
   * [MacOS Installation](#MacOS-Installation)
 
-    * [1. Install Git for MacOS](#1.-Install-Git-for-MacOS)
+    * [1 Install Git for MacOS](#1-Install-Git-for-MacOS)
 
-    * [2. Clone the ae353-sp24 Repository using Git in MacOS](#2.-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
+    * [2 Clone the ae353-sp24 Repository using Git in MacOS](#2-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
 
-    * [3. Install Miniconda for MacOS](#3.-Install-Miniconda-for-MacOS)
+    * [3 Install Miniconda for MacOS](#3-Install-Miniconda-for-MacOS)
 
-    * [4. Install condynsate in a Miniconda virtual environment in MacOS](#4.-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
+    * [4 Install condynsate in a Miniconda virtual environment in MacOS](#4-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
 
   * [Running Projects in MacOS](#Running-Projects-in-MacOS)
 
-    * [1. Change your working directory in MacOS](#1.-Change-your-working-directory-in-MacOS)
+    * [1 Change your working directory in MacOS](#1-Change-your-working-directory-in-MacOS)
 
-    * [2. Get the latest version of the code in MacOS](#2.-Get-the-latest-version-of-the-code-in-MacOS)
+    * [2 Get the latest version of the code in MacOS](#2-Get-the-latest-version-of-the-code-in-MacOS)
 
-    * [3. Activate your Conda environment in MacOS](#3.-Activate-your-Conda-environment-in-MacOS)
+    * [3 Activate your Conda environment in MacOS](#3-Activate-your-Conda-environment-in-MacOS)
 
-    * [4. Start a Jupyter Notebook in MacOS](#4.-Start-a-Jupyter-Notebook-in-MacOS)
+    * [4 Start a Jupyter Notebook in MacOS](#4-Start-a-Jupyter-Notebook-in-MacOS)
 
 
 
@@ -161,7 +161,7 @@ See documentation on [Find and Open Files using Windows Command Prompt](https://
 
 ### Windows Installation
 
-#### 1. Install Git for Windows
+#### 1 Install Git for Windows
 If you do not have Git already installed, download the most recent Git installer for Windows 64 from the [git-scm website](https://git-scm.com/download/win) or just click [here](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Git-VERSION-64-bit and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
 
 Once the wizard is running, click **next**.
@@ -276,7 +276,7 @@ If Git is installed correctly, you should get a response that lists the version 
 
 
 
-#### 2. Clone the ae353-sp24 Repository using Git in Windows
+#### 2 Clone the ae353-sp24 Repository using Git in Windows
 
 Open **git-cmd** and navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the [change directory command](#How to change the working directory).
 
@@ -290,7 +290,7 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 
 
-#### 3. Install Miniconda for Windows
+#### 3 Install Miniconda for Windows
 If you do not have Miniconda already installed, download the most recent Miniconda installer for Windows 64 from the [miniconda website](https://docs.conda.io/projects/miniconda/en/latest/) or just click [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Miniconda3-latest-Windows-x86_64 and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
 
 Once the wizard is running, click **next**.
@@ -357,7 +357,7 @@ If Miniconda is installed correctly, you should get a response that lists the ve
 
 
 
-#### 4. Install condynsate in a Miniconda virtual environment in Windows
+#### 4 Install condynsate in a Miniconda virtual environment in Windows
 To install condynsate in a Miniconda virtual environment, open **Anaconda Prompt (Miniconda3)** and run the command
 
 ```bash
@@ -404,13 +404,13 @@ to quit the Python shell and exit out of the Anaconda prompt.
 
 ### Running Projects in Windows
 
-#### 1. Change your working directory in Windows
+#### 1 Change your working directory in Windows
 
 Open an **Anaconda Prompt** and change your working directory to wherever you cloned this repository.
 
 
 
-#### 2. Get the latest version of the code in Windows
+#### 2 Get the latest version of the code in Windows
 
 Run the commands
 
@@ -423,7 +423,7 @@ Do not worry, this will not overwrite any of your own work. If you see any error
 
 
 
-#### 3. Activate your Conda environment in Windows
+#### 3 Activate your Conda environment in Windows
 
 Run the command
 
@@ -435,7 +435,7 @@ You should see the prefix to your prompt change from `(base)` to `(ae353)`. This
 
 
 
-#### 4. Start a Jupyter Notebook in Windows
+#### 4 Start a Jupyter Notebook in Windows
 
 Run the command
 
@@ -489,7 +489,7 @@ cd ..
 
 ### Linux Installation
 
-#### 1. Clone the ae353-sp24 Repository using Git in Linux
+#### 1 Clone the ae353-sp24 Repository using Git in Linux
 
 Open the terminal. Navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
 
@@ -501,7 +501,7 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 
 
-#### 2. Install Miniconda for Linux
+#### 2 Install Miniconda for Linux
 
 If you do not have Miniconda already installed, run these four commands in the Terminal to quickly and quietly install the latest 64-bit version of the installer.
 
@@ -527,7 +527,7 @@ You should get a response that lists the version of Miniconda you just installed
 
 
 
-#### 3. Install condynsate in a Miniconda virtual environment in Linux
+#### 3 Install condynsate in a Miniconda virtual environment in Linux
 To install condynsate in a Miniconda virtual environment, open the Terminal and create a new virtual environment with python 3.8.18. To do this, run the command
 ```bash
 conda create -n ae353 python==3.8.18
@@ -560,13 +560,13 @@ to quit the Python shell.
 
 ### Running Projects in Linux
 
-#### 1. Change your working directory in Linux
+#### 1 Change your working directory in Linux
 
 Open the Terminal and change your working directory to wherever you cloned this repository.
 
 
 
-#### 2. Get the latest version of the code in Linux
+#### 2 Get the latest version of the code in Linux
 
 Run the commands
 
@@ -579,7 +579,7 @@ Do not worry, this will not overwrite any of your own work. If you see any error
 
 
 
-#### 3. Activate your Conda environment in Linux
+#### 3 Activate your Conda environment in Linux
 
 Run the command
 
@@ -591,7 +591,7 @@ You should see the prefix to your prompt change from `(base)` to `(ae353)`. This
 
 
 
-#### 4. Start a Jupyter Notebook in Linux
+#### 4 Start a Jupyter Notebook in Linux
 
 Run the command
 
@@ -670,7 +670,7 @@ See documentation on [Specify files and folders in Terminal on Mac](https://supp
 
 ### MacOS Installation
 
-#### 1. Install Git for MacOS
+#### 1 Install Git for MacOS
 
 If you do not have Git already installed, install it via Homebew. First, open the terminal.
 
@@ -698,7 +698,7 @@ You should get a response that lists the version of Git you just installed. If y
 
 
 
-#### 2. Clone the ae353-sp24 Repository using Git in MacOS
+#### 2 Clone the ae353-sp24 Repository using Git in MacOS
 
 Open the terminal. Navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
 
@@ -710,7 +710,7 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 
 
-#### 3. Install Miniconda for MacOS
+#### 3 Install Miniconda for MacOS
 
 If you do not have Miniconda already installed, open the Terminal.
 
@@ -739,7 +739,7 @@ You should get a response that lists the version of Miniconda you just installed
 
 
 
-#### 4. Install condynsate in a Miniconda virtual environment in MacOS
+#### 4 Install condynsate in a Miniconda virtual environment in MacOS
 
 To install condynsate in a Miniconda virtual environment, open the Terminal and create a new virtual environment with python 3.8.18. To do this, run the command
 
@@ -781,13 +781,13 @@ to quit the Python shell.
 
 ### Running Projects in MacOS
 
-#### 1. Change your working directory in MacOS
+#### 1 Change your working directory in MacOS
 
 Open the Terminal and change your working directory to wherever you cloned this repository.
 
 
 
-#### 2. Get the latest version of the code in MacOS
+#### 2 Get the latest version of the code in MacOS
 
 Run the commands
 
@@ -800,7 +800,7 @@ Do not worry, this will not overwrite any of your own work. If you see any error
 
 
 
-#### 3. Activate your Conda environment in MacOS
+#### 3 Activate your Conda environment in MacOS
 
 Run the command
 
@@ -812,7 +812,7 @@ You should see the prefix to your prompt change from `(base)` to `(ae353)`. This
 
 
 
-#### 4. Start a Jupyter Notebook in MacOS
+#### 4 Start a Jupyter Notebook in MacOS
 
 Run the command
 
