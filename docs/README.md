@@ -2,37 +2,37 @@
 
 ## Table of Contents
 
-[**Introduction**](#introduction)
+* [**Introduction**](#introduction)
 
-[**Windows Usage**](#Windows-Usage)
+* [**Windows Usage**](#Windows-Usage)
 
-​	[Windows Command Line Basics](#Windows-Command-Line-Basics)
+  * [Windows Command Line Basics](#Windows-Command-Line-Basics)
 
-​		[How to open an Anaconda Prompt in Windows](#How-to-open-an-Anaconda-Prompt-in-Windows)
+    * [How to open an Anaconda Prompt in Windows](#How-to-open-an-Anaconda-Prompt-in-Windows)
 
-​		[How to run a command in Windows ](#How-to-run-a-command-in-Windows)
+    * [How to run a command in Windows ](#How-to-run-a-command-in-Windows)
 
-​		[How to change the working directory in Windows](#How-to-change-the-working-directory-in-Windows)
+    * [How to change the working directory in Windows](#How-to-change-the-working-directory-in-Windows)
 
- 	[Windows Installation](#Windows-Installation)
+  * [Windows Installation](#Windows-Installation)
 
-​		[1. Install Git for Windows](#1.-Install-Git-for-Windows)
+    * [1. Install Git for Windows](#1.-Install-Git-for-Windows)
 
-​		[2. Clone the ae353-sp24 Repository using Git in Windows](#2.-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
+    * [2. Clone the ae353-sp24 Repository using Git in Windows](#2.-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
 
-​		[3. Install Miniconda for Windows](#3.-Install-Miniconda-for-Windows)
+    * [3. Install Miniconda for Windows](#3.-Install-Miniconda-for-Windows)
 
-​		[4. Install condynsate in a Miniconda virtual environment in Windows](#4.-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
+    * [4. Install condynsate in a Miniconda virtual environment in Windows](#4.-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
 
-​	[Running Projects in Windows](#Running-Projects-in-Windows)
+  * [Running Projects in Windows](#Running-Projects-in-Windows)
 
-​		[1. Change your working directory in Windows](#1.-Change-your-working-directory-in-Windows)
+    * [1. Change your working directory in Windows](#1.-Change-your-working-directory-in-Windows)
 
-​		[2. Get the latest version of the code in Windows](#2.-Get-the-latest-version-of-the-code-in-Windows)
+    * [2. Get the latest version of the code in Windows](#2.-Get-the-latest-version-of-the-code-in-Windows)
 
-​		[3. Activate your Conda environment in Windows](#3.-Activate-your-Conda-environment-in-Windows)
+    * [3. Activate your Conda environment in Windows](#3.-Activate-your-Conda-environment-in-Windows)
 
-​		[4. Start a Jupyter Notebook in Windows](#4.-Start-a-Jupyter-Notebook-in-Windows)
+    * [4. Start a Jupyter Notebook in Windows](#4.-Start-a-Jupyter-Notebook-in-Windows)
 
 [**Linux Usage**](#Linux Usage)
 
