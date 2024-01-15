@@ -4,7 +4,7 @@
 
 [**Introduction**](#Introduction)
 
-[**Windows Usage**](#Windows%20Usage)
+[**Windows Usage**](Windows%20Usage)
 
 ​	[Windows Command Line Basics](#Windows Command Line Basics)
 
