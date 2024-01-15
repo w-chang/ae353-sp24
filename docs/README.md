@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-[**Introduction**](#Introduction)
+[**Introduction**](#introduction)
 
-[**Windows Usage**](#windows-usage)
+[**Windows Usage**](#Windows-Usage)
 
 ​	[Windows Command Line Basics](#Windows Command Line Basics)
 
