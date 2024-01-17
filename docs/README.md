@@ -161,7 +161,7 @@ Select your desired save location and click next
 
 * We also reccomend that you chose a destination that will be near to where you plan on installing Miniconda and cloning the Github repositories. This will make navigating to these repositories from the **git-cmd** application easier. 
 
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_1b.png?raw=true" alt="git_1b" width="495" height="375"/>
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_1_1.png?raw=true" alt="git_1_1" width="495" height="375"/>
 
 Click **next**.
 
