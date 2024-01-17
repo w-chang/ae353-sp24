@@ -155,6 +155,14 @@ Once the wizard is running, click **next**.
 
 <img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_1.png?raw=true" alt="git_1" width="495" height="375"/>
 
+Select your desired save location and click next
+
+* We recommend that you do not select a save destination that has any special characters or spaces in the path.
+
+* We also reccomend that you chose a destination that will be near to where you plan on installing Miniconda and cloning the Github repositories. This will make navigating to these repositories from the **git-cmd** application easier. 
+
+<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_1b.png?raw=true" alt="git_1b" width="495" height="375"/>
+
 Click **next**.
 
 <img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_2.png?raw=true" alt="git_2" width="495" height="375"/>
@@ -351,7 +359,7 @@ to quit the Python shell and exit out of the Anaconda prompt.
 
 #### 1 Change your working directory in Windows
 
-Open an **Anaconda Prompt** and change your working directory to wherever you cloned this repository.
+Open an **git-cmd** and change your working directory to wherever you cloned this repository.
 
 #### 2 Get the latest version of the code in Windows
 
@@ -366,7 +374,7 @@ Do not worry, this will not overwrite any of your own work. If you see any error
 
 #### 3 Activate your Conda environment in Windows
 
-Run the command
+Open  **Anaconda Prompt (miniconda3)** and run the command
 
 ```
 conda activate ae353
