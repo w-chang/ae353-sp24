@@ -7,6 +7,8 @@ This modules provides a backend for the ae353 wheel example
 ###############################################################################
 from condynsate.simulator import Simulator
 from pathlib import Path
+import sys
+import time
 
 
 ###############################################################################
@@ -14,15 +16,19 @@ from pathlib import Path
 ###############################################################################
 class Wheel_sim():
     def __init__(self,
+                 force_keyboard=False,
                  visualization=True,
                  visualization_fr=20.,
                  animation=True,
                  animation_fr=10.):
         """
-        Initializes an instance of the wheel simulation class.
+        Initializes an instance of the simulation class.
 
         Parameters
         ----------
+        force_keyboard : bool, optional
+            A boolean flag that indicates whether the simulation will force
+            the keyboard to be used, regardless of OS
         visualization : bool, optional
             A boolean flag that indicates whether the simulation will be 
             visualized in meshcat. The default is True.
@@ -41,6 +47,14 @@ class Wheel_sim():
         None.
 
         """
+        # Disable keyboard use for Mac users =(
+        if sys.platform == 'win32':
+            self.use_keyboard = True
+        elif sys.platform == 'linux':
+            self.use_keyboard = True
+        else:
+            self.use_keyboard = False or force_keyboard
+        
         # Set the visualization and animation options
         self.visualization = visualization
         self.animation = animation
@@ -108,83 +122,62 @@ class Wheel_sim():
 
     def run(self,
             controller,
+            max_time = None,
             initial_angle = 0.0,
             initial_target_angle = 3.14159,
             initial_P = 0.0,
             initial_D = 0.0):
         """
-        Runs a complete wheel simulation
+        Runs a complete simulation
 
         Parameters
         ----------
         controller : class
-            A custom class that, at a minimum, must provide the functions:
-                
-                controller.run()
-                Parameters
-                ----------
-                **kwargs
-                
-                Returns
-                -------
-                inputs : list of one float
-                The value of torque calculated by the controller
-                
-                
-                controller.reset()
-                Parameters
-                ----------
-                None.
-                
-                Returns
-                -------
-                None.
-                
-                
+            A custom class that, at a minimum, must provide the functions
+            controller.run() and controller.reset()
+        max_time : Float, optional
+            The total amount of time the simulation is allowed to run. When
+            set to None, the simulator will run until the terminal command is 
+            called. If the keyboard is disabled, users are not allowed to 
+            set max time as None. The default value is None.
         initial_angle : Float, optional
             The initial angle of the wheel in radians. The wheel is set to 
             this angle when the simulation starts and when the simulation is
             reset. The default value is 0.0.
-
         initial_target_angle : Float, optioanl
             The initial target angle in radians. This is set when the
             simulation starts and when the simulation is reset. Must be within
             the range [-pi, pi]. The default value is pi.
-    
         initial_P : Float, optional
             The initial value of the proportional gain. This is set when the
             simulation starts and when the simulation is reset. Must be within
             the range [0.0, 10.0]. The default value is 0.0.
-    
         initial_D : Float, optional
             The initial value of the derivative gain. This is set when the
             simulation starts and when the simulation is reset. Must be within
             the range [0.0, 10.0]. The default value is 0.0.
-                
 
         Returns
         -------
         data : Dictionary of Lists
-        
             data["angle"] : List of Floats
                 A list of all wheel angles during the simulation.
-
             data["target_angle"] : List of Floats
                 A list of all target wheel angles during the simulation.
-
             data["time"] : List of Floats
                 A list of the time during the simulation.
-
             data["P"] : List of Floats
                 A list of all proportional gains set during the simulation.
-
             data["D"] : List of Floats
                 A list of all derivative gains set during the simulation.
-
             data["torque"] : List of Floats
                 A list of all torques applied during the simulation.
 
         """
+        # Check max_time is valid
+        if not self.use_keyboard and max_time == None:
+            max_time = 10.0
+
         # Set the initial values
         self.sim.set_joint_position(urdf_obj = self.wheel_obj,
                                     joint_name = "ground_to_axle",
@@ -206,9 +199,14 @@ class Wheel_sim():
         D_history = []
         torque_history = []
 
-        # Run the simulation loop
-        self.sim.await_keypress(key='enter')
-        while(not self.sim.is_done):
+        # Await run command
+        if self.use_keyboard:
+            self.sim.await_keypress(key='enter')
+        else:
+            time.sleep(1)
+            
+        # Run the simulation
+        while( not self.sim.is_done ):
             ##################################################################
             # SENSOR
             # Use a sensor to collect the absolute angle of the wheel and
@@ -276,43 +274,46 @@ class Wheel_sim():
             
             ###################################################################
             # UPDATE THE TARGET ANGLE
-            # Iterate the target angle
-            self.angle_tag = self.sim.iterate_val(curr_val=self.angle_tag,
-                                                  down_key='a',
-                                                  up_key='d',
-                                                  iter_val=0.03,
-                                                  min_val=-3.1415927,
-                                                  max_val=3.1415927)
-                
-            # Adjust the target arrow so that it is always 
-            # pointing in the target angle direction
-            self.sim.set_joint_position(urdf_obj=self.target_obj,
-                                        joint_name='world_to_arrow',
-                                        position=self.angle_tag,
-                                        physics=False)
+            if self.use_keyboard: 
+                # Iterate the target angle
+                self.angle_tag = self.sim.iterate_val(curr_val=self.angle_tag,
+                                                      down_key='a',
+                                                      up_key='d',
+                                                      iter_val=0.03,
+                                                      min_val=-3.1415927,
+                                                      max_val=3.1415927)
+                    
+                # Adjust the target arrow so that it is always 
+                # pointing in the target angle direction
+                self.sim.set_joint_position(urdf_obj=self.target_obj,
+                                            joint_name='world_to_arrow',
+                                            position=self.angle_tag,
+                                            physics=False)
                 
             ###################################################################
             # UPDATE THE CONTROL GAINS
-            # Iterate the proportional and derivative gains
-            self.P = self.sim.iterate_val(curr_val=self.P,
-                                          down_key='f',
-                                          up_key='r',
-                                          iter_val=0.02,
-                                          min_val=0,
-                                          max_val=10)
-            self.D = self.sim.iterate_val(curr_val=self.D,
-                                          down_key='g',
-                                          up_key='t',
-                                          iter_val=0.02,
-                                          min_val=0,
-                                          max_val=10)
+            if self.use_keyboard: 
+                # Iterate the proportional and derivative gains
+                self.P = self.sim.iterate_val(curr_val=self.P,
+                                              down_key='f',
+                                              up_key='r',
+                                              iter_val=0.02,
+                                              min_val=0,
+                                              max_val=10)
+                self.D = self.sim.iterate_val(curr_val=self.D,
+                                              down_key='g',
+                                              up_key='t',
+                                              iter_val=0.02,
+                                              min_val=0,
+                                              max_val=10)
             
             ###################################################################
             # STEP THE SIMULATION
             # Step the sim
             val = self.sim.step(real_time=True,
                                 update_vis=self.visualization,
-                                update_ani=self.animation)
+                                update_ani=self.animation,
+                                max_time=max_time)
             
             # Handle resetting the controller and simulation data
             if val == 3:
@@ -331,8 +332,7 @@ class Wheel_sim():
                 self.angle_tag = initial_target_angle
                 self.P = initial_P
                 self.D = initial_D
-                
-                
+            
         # When the simulation is done running, gather all simulation data 
         # into a dictionary and return it
         data = {'time' : time_history,

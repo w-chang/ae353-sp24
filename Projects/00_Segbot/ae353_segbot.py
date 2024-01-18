@@ -8,6 +8,8 @@ This modules provides a backend for the ae353 segbot example
 from condynsate.simulator import Simulator
 from pathlib import Path
 import numpy as np
+import sys
+import time
 
 
 ###############################################################################
@@ -15,6 +17,7 @@ import numpy as np
 ###############################################################################
 class Segbot_sim():
     def __init__(self,
+                 force_keyboard=False,
                  visualization=True,
                  visualization_fr=20.,
                  animation=True,
@@ -24,6 +27,9 @@ class Segbot_sim():
 
         Parameters
         ----------
+        force_keyboard : bool, optional
+            A boolean flag that indicates whether the simulation will force
+            the keyboard to be used, regardless of OS
         visualization : bool, optional
             A boolean flag that indicates whether the simulation will be 
             visualized in meshcat. The default is True.
@@ -42,6 +48,14 @@ class Segbot_sim():
         None.
 
         """
+        # Disable keyboard use for Mac users =(
+        if sys.platform == 'win32':
+            self.use_keyboard = True
+        elif sys.platform == 'linux':
+            self.use_keyboard = True
+        else:
+            self.use_keyboard = False or force_keyboard
+            
         # Set the visualization and animation options
         self.visualization = visualization
         self.animation = animation
@@ -106,6 +120,7 @@ class Segbot_sim():
 
     def run(self,
             controller,
+            max_time = None,
             station_velocity = 0.0333,
             initial_pitch_angle = 0.0,
             initial_pitch_velocity = 0.0,):
@@ -115,38 +130,21 @@ class Segbot_sim():
         Parameters
         ----------
         controller : class
-            A custom class that, at a minimum, must provide the functions:
-                
-                controller.run()
-                Parameters
-                ----------
-                **kwargs
-                
-                Returns
-                -------
-                inputs : list of one float
-                The value of torque calculated by the controller
-                
-                
-                controller.reset()
-                Parameters
-                ----------
-                None.
-                
-                Returns
-                -------
-                None.
-                
+            A custom class that, at a minimum, must provide the functions
+            controller.run() and controller.reset()
+        max_time : Float, optional
+            The total amount of time the simulation is allowed to run. When
+            set to None, the simulator will run until the terminal command is 
+            called. If the keyboard is disabled, users are not allowed to 
+            set max time as None. The default value is None. 
         station_velocity : Float, optional
             The angular velocity of the station in radians per second.
             Remains constant throughout simulation. The default value is 
             0.0333.
-                
         initial_pitch_angle : Float, optional
             The initial pitch angle of the segbot in radians. This is set
             when the simulation starts and when the simulation is
             reset. The default value is 0.0.
-        
         initial_pitch_velocity : Float, optional
             The initial pitch angular rate of the wheels in radians / second.
             This is set when the simulation starts and when the simulation is
@@ -155,31 +153,29 @@ class Segbot_sim():
         Returns
         -------
         data : Dictionary of Lists
-            
             data["pitch_angle"] : List of Floats
                 A list of the pitch angle in radians at each time stamp
                 during the simulation.
-            
             data["pitch_velocity"] : List of Floats
                 A list of the pitch rate in radians/second at each time stamp
                 during the simulation.
-            
             data["lateral_position"] : List of Floats
                 A list of the lateral position in meters each time
                 stamp during the simulation.
-            
             data["lateral_velocity"] : List of Floats
                 A list of the lateral velocity in meters/second at each time
                 stamp during the simulation.
-            
             data["torque"] : List of Floats
                 A list of the applied torque in Newton-meters at each time
                 stamp during the simulation.
-            
             data["time"] : List of Floats
                 A list of the time stamps in seconds.
 
         """
+        # Check max_time is valid
+        if not self.use_keyboard and max_time == None:
+            max_time = 10.0
+            
         # Set the initial values
         self.sim.set_joint_velocity(urdf_obj=self.station_obj,
                                 joint_name='space_to_ring',
@@ -199,8 +195,13 @@ class Segbot_sim():
         # wheel_velocity_history = []
         # torque_history = []
 
+        # Await run command
+        if self.use_keyboard:
+            self.sim.await_keypress(key='enter')
+        else:
+            time.sleep(1)
+            
         # Run the simulation loop
-        self.sim.await_keypress(key='enter')
         while(not self.sim.is_done):
             # ##################################################################
             # # SENSOR
@@ -289,7 +290,8 @@ class Segbot_sim():
             # Step the sim
             val = self.sim.step(real_time=True,
                                 update_vis=self.visualization,
-                                update_ani=self.animation)
+                                update_ani=self.animation,
+                                max_time=max_time)
             
             # # Handle resetting the controller and simulation data
             # if val == 3:

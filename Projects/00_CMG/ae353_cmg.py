@@ -8,6 +8,8 @@ This modules provides a backend for the ae353 cmg example
 from condynsate.simulator import Simulator
 from pathlib import Path
 import numpy as np
+import sys
+import time
 
 
 ###############################################################################
@@ -15,15 +17,19 @@ import numpy as np
 ###############################################################################
 class CMG_sim():
     def __init__(self,
+                 force_keyboard=False,
                  visualization=True,
                  visualization_fr=20.,
                  animation=True,
                  animation_fr=10.):
         """
-        Initializes an instance of the wheel simulation class.
+        Initializes an instance of the simulation class.
 
         Parameters
         ----------
+        force_keyboard : bool, optional
+            A boolean flag that indicates whether the simulation will force
+            the keyboard to be used, regardless of OS
         visualization : bool, optional
             A boolean flag that indicates whether the simulation will be 
             visualized in meshcat. The default is True.
@@ -42,6 +48,14 @@ class CMG_sim():
         None.
 
         """
+        # Disable keyboard use for Mac users =(
+        if sys.platform == 'win32':
+            self.use_keyboard = True
+        elif sys.platform == 'linux':
+            self.use_keyboard = True
+        else:
+            self.use_keyboard = False or force_keyboard
+            
         # Set the visualization and animation options
         self.visualization = visualization
         self.animation = animation
@@ -100,6 +114,7 @@ class CMG_sim():
 
     def run(self,
             controller,
+            max_time = None,
             initial_frame_angle = 0.0,
             initial_gimbal_angle = 0.0,
             initial_frame_velocity = 0.0,
@@ -107,59 +122,38 @@ class CMG_sim():
             rotor_velocity = 100.0,
             frame_damping = 0.1):
         """
-        Runs a complete wheel simulation
+        Runs a complete simulation
 
         Parameters
         ----------
         controller : class
-            A custom class that, at a minimum, must provide the functions:
-                
-                controller.run()
-                Parameters
-                ----------
-                **kwargs
-                
-                Returns
-                -------
-                inputs : list of one float
-                The value of torque calculated by the controller
-                
-                
-                controller.reset()
-                Parameters
-                ----------
-                None.
-                
-                Returns
-                -------
-                None.
-                
-                
+            A custom class that, at a minimum, must provide the functions
+            controller.run() and controller.reset()
+        max_time : Float, optional
+            The total amount of time the simulation is allowed to run. When
+            set to None, the simulator will run until the terminal command is 
+            called. If the keyboard is disabled, users are not allowed to 
+            set max time as None. The default value is None. 
         initial_frame_angle : Float, optional
             The initial angle of the frame in radians. This is set
             when the simulation starts and when the simulation is
             reset. The default value is 0.0.
-        
         initial_gimbal_angle : Float, optional
             The initial angle of the gimbal in radians. This is set
             when the simulation starts and when the simulation is
             reset. The default value is 0.0.
-        
         initial_frame_velocity : Float, optional
             The initial velocity of the frame in radians/second.
             This is set when the simulation starts and when the
             simulation is reset. The default value is 0.0.
-        
         initial_gimbal_velocity : Float, optional
             The initial velocity of the gimbal in radians/second.
             This is set when the simulation starts and when the
             simulation is reset. The default value is 0.0.
-                                
         rotor_velocity : Float, optional
             The fixed velocity of the rotor. Remember, if this is changed,
             the dynamics will also be changed. Make sure to update your 
             controller accordingly! The default value is 100.0.
-            
         frame_damping : Float, optional
             The damping applied to the frame axle. If set to 0, no energy
             is lost. Anything greater than 0 results in energy loss while
@@ -168,35 +162,32 @@ class CMG_sim():
         Returns
         -------
         data : Dictionary of lists
-            
             data["frame_angle"] : List of Floats
                 A list of the frame angle in radians at each time stamp during
                 the simulation.
-                
             data["gimbal_angle"] : List of Floats
                 A list of the gimbal angle in radians at each time stamp during
                 the simulation.
-                
             data["frame_velocity"] : List of Floats
                 A list of the frame velocity in radians/secondat each time
                 stamp during the simulation.
-                
             data["gimbal_velocity"] : List of Floats
                 A list of the gimbal velocity in radians/second at each time
                 stamp during the simulation.
-                
             data["rotor_velocity"] : List of Floats
                 A list of the rotor velocity in radians/secondat each time
                 stamp during the simulation.
-                
             data["torque"] : List of Floats
                 A list of the applied torque in Newton-meters at each time
                 stamp during the simulation.
-                
             data["time"] : List of Floats  
                 A list of the time stamps in seconds.
 
         """
+        # Check max_time is valid
+        if not self.use_keyboard and max_time == None:
+            max_time = 10.0
+            
         # Set the initial values
         self.sim.set_joint_position(urdf_obj=self.cmg_obj,
                                 joint_name='wall_to_frame_axle',
@@ -240,8 +231,13 @@ class CMG_sim():
         rotor_velocity_history = []
         torque_history = []
 
+        # Await run command
+        if self.use_keyboard:
+            self.sim.await_keypress(key='enter')
+        else:
+            time.sleep(1)
+            
         # Run the simulation loop
-        self.sim.await_keypress(key='enter')
         while(not self.sim.is_done):
             ##################################################################
             # SENSOR
@@ -313,7 +309,8 @@ class CMG_sim():
             # Step the sim
             val = self.sim.step(real_time=True,
                                 update_vis=self.visualization,
-                                update_ani=self.animation)
+                                update_ani=self.animation,
+                                max_time=max_time)
             
             # Handle resetting the controller and simulation data
             if val == 3:
