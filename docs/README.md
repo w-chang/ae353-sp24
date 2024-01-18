@@ -70,13 +70,11 @@
   
   * [MacOS Installation](#MacOS-Installation)
     
-    * [1 Install Git for MacOS](#1-Install-Git-for-MacOS)
+    * [1 Install Miniconda for MacOS](#1-Install-Miniconda-for-MacOS)
     
-    * [2 Clone the ae353-sp24 Repository using Git in MacOS](#2-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
+    * [2 Install condynsate in a Miniconda virtual environment in MacOS](#2-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
     
-    * [3 Install Miniconda for MacOS](#3-Install-Miniconda-for-MacOS)
-    
-    * [4 Install condynsate in a Miniconda virtual environment in MacOS](#4-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
+    * [3 Clone the ae353-sp24 Repository using Git in MacOS](#3-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
   
   * [Running Projects in MacOS](#Running-Projects-in-MacOS)
     
@@ -84,9 +82,7 @@
     
     * [2 Get the latest version of the code in MacOS](#2-Get-the-latest-version-of-the-code-in-MacOS)
     
-    * [3 Activate your Conda environment in MacOS](#3-Activate-your-Conda-environment-in-MacOS)
-    
-    * [4 Start a Jupyter Notebook in MacOS](#4-Start-a-Jupyter-Notebook-in-MacOS)
+    * [3 Start a Jupyter Notebook in MacOS](#3-Start-a-Jupyter-Notebook-in-MacOS)
 
 ## Introduction
 
@@ -251,13 +247,13 @@ If condynsate is installed correctly, the current version will be shown. You may
 quit()
 ```
 
-to quit the Python shell and exit out of the Anaconda prompt.
+to quit the Python shell.
 
 #### 3 Clone the ae353-sp24 Repository using Git in Windows
 
-Open **Anaconda Prompt (Miniconda3)** and navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the [change directory command](#How to change the working directory).
+In your already opened **Anaconda Prompt (Miniconda3)** navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the [change directory command](#How to change the working directory).
 
-Nest, clone the repository into the current directory by running the command
+Next, clone the repository into the current directory by running the command
 
 ```bash
 git clone https://github.com/w-chang/ae353-sp24.git
@@ -523,43 +519,7 @@ See documentation on [Specify files and folders in Terminal on Mac](https://supp
 
 ### MacOS Installation
 
-#### 1 Install Git for MacOS
-
-If you do not have Git already installed, install it via Homebew. First, open the terminal.
-
-Next, type the command:
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-**Restart the terminal.** This will install [Homebrew](https://brew.sh/) on your machine. Homebrew is a package manager for MacOS. 
-
-Next , install Git via Homebrew by running the command
-
-```bash
-brew install git
-```
-
-This installs Git to your system. To verify that Git installed correctly,  run the command 
-
-```bash
-git --version
-```
-
-You should get a response that lists the version of Git you just installed. If you do not, more help on installation can be found [here](https://git-scm.com/download/mac).
-
-#### 2 Clone the ae353-sp24 Repository using Git in MacOS
-
-Open the terminal. Navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
-
-```bash
-git clone https://github.com/w-chang/ae353-sp24.git
-```
-
-The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
-
-#### 3 Install Miniconda for MacOS
+#### 1 Install Miniconda for MacOS
 
 If you do not have Miniconda already installed, open the Terminal.
 
@@ -586,15 +546,15 @@ conda --version
 
 You should get a response that lists the version of Miniconda you just installed. If you do not, more help on installation can be found [here](https://docs.conda.io/projects/miniconda/en/latest/).
 
-#### 4 Install condynsate in a Miniconda virtual environment in MacOS
+#### 2 Install condynsate in a Miniconda virtual environment in MacOS
 
-To install condynsate in a Miniconda virtual environment, open the Terminal and run the command
+To create a new Miniconda virtual environment, in your already open Terminal run the command
 
 ```bash
 conda create -n ae353
 ```
 
-When prompted, type `y` and press enter. This creates a new virtual environment. to activate the environment, run the command
+When prompted, type `y` and press enter. This creates a new virtual environment. To activate the environment, run the command
 
 ```bash
 conda activate ae353
@@ -613,7 +573,7 @@ conda clean -a -i
 Now install the Conda-Forge dependencies by running the commands
 
 ```bash
-conda install -y python=3 numpy scipy pynput matplotlib pybullet
+conda install -y python=3 git numpy scipy pynput matplotlib pybullet
 conda install -y control sympy notebook ipywidgets imageio
 conda install -y imageio-ffmpeg
 ```
@@ -631,7 +591,7 @@ You can check that condynsate installed correctly by running the command
 python
 ```
 
-This starts a Python shell in your Anaconda prompt. Next run the commands
+This starts a Python shell in your Terminal. Next run the commands
 
 ```python
 import condynsate
@@ -644,17 +604,33 @@ If condynsate is installed correctly, the current version will be shown. You may
 quit()
 ```
 
-to quit the Python shell and exit out of the Terminal.
+to quit the Python shell.
+
+#### 2 Clone the ae353-sp24 Repository using Git in MacOS
+
+In your already opened Terminal, navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
+
+```bash
+git clone https://github.com/w-chang/ae353-sp24.git
+```
+
+The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
 
 ### Running Projects in MacOS
 
 #### 1 Change your working directory in MacOS
 
-Open the Terminal and change your working directory to wherever you cloned this repository.
+Open the Terminal and run the command
+
+```
+conda activate ae353
+```
+
+You should see the prefix to your prompt change from `(base)` to `(ae353)`. Next, change your working directory to wherever you cloned this repository.
 
 #### 2 Get the latest version of the code in MacOS
 
-Run the commands
+In your already open Terminal run the commands
 
 ```
 git fetch
@@ -663,19 +639,9 @@ git pull
 
 Do not worry, this will not overwrite any of your own work. If you see any errors or warnings, post a note to [Piazza](https://piazza.com/) and course staff will help resolve them.
 
-#### 3 Activate your Conda environment in MacOS
+#### 3 Start a Jupyter Notebook in MacOS
 
-Run the command
-
-```
-conda activate ae353
-```
-
-You should see the prefix to your prompt change from `(base)` to `(ae353)`. This means you are in the Conda environment you created for work with AE353.
-
-#### 4 Start a Jupyter Notebook in MacOS
-
-Run the command
+In your already open Terminal run the command
 
 ```
 jupyter notebook
