@@ -224,6 +224,7 @@ conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sym
 Once the installation is complete, install condynsate by running the commands
 
 ```bash
+python -m pip install --upgrade pip
 pip cache purge
 pip install condynsate
 ```
@@ -398,6 +399,7 @@ conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sym
 Once the installation is complete, install condynsate by running the commands
 
 ```bash
+python3 -m pip install --upgrade pip
 pip cache purge
 pip install condynsate
 ```
@@ -591,6 +593,7 @@ conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sym
 Once the installation is complete, install condynsate by running the commands
 
 ```bash
+
 pip cache purge
 pip install condynsate
 ```
