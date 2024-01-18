@@ -8,7 +8,6 @@ This modules provides a backend for the ae353 cart example
 from condynsate.simulator import Simulator
 from pathlib import Path
 import numpy as np
-import sys
 import time
 
 
@@ -17,7 +16,7 @@ import time
 ###############################################################################
 class Cart_sim():
     def __init__(self,
-                 force_keyboard=False,
+                 use_keyboard=True,
                  visualization=True,
                  visualization_fr=20.,
                  animation=True,
@@ -27,9 +26,9 @@ class Cart_sim():
 
         Parameters
         ----------
-        force_keyboard : bool, optional
-            A boolean flag that indicates whether the simulation will force
-            the keyboard to be used, regardless of OS
+        keyboard : bool, optional
+            A boolean flag that indicates whether the simulation will allow
+            the use of keyboard interactivity. The default is True.
         visualization : bool, optional
             A boolean flag that indicates whether the simulation will be 
             visualized in meshcat. The default is True.
@@ -48,13 +47,8 @@ class Cart_sim():
         None.
 
         """
-        # Disable keyboard use for Mac users =(
-        if sys.platform == 'win32':
-            self.use_keyboard = True
-        elif sys.platform == 'linux':
-            self.use_keyboard = True
-        else:
-            self.use_keyboard = False or force_keyboard
+        # Keyboard settings
+        self.use_keyboard = use_keyboard
             
         # Set the visualization and animation options
         self.visualization = visualization

@@ -7,7 +7,6 @@ This modules provides a backend for the ae353 wheel example
 ###############################################################################
 from condynsate.simulator import Simulator
 from pathlib import Path
-import sys
 import time
 
 
@@ -16,7 +15,7 @@ import time
 ###############################################################################
 class Wheel_sim():
     def __init__(self,
-                 force_keyboard=False,
+                 use_keyboard=True,
                  visualization=True,
                  visualization_fr=20.,
                  animation=True,
@@ -26,9 +25,9 @@ class Wheel_sim():
 
         Parameters
         ----------
-        force_keyboard : bool, optional
-            A boolean flag that indicates whether the simulation will force
-            the keyboard to be used, regardless of OS
+        keyboard : bool, optional
+            A boolean flag that indicates whether the simulation will allow
+            the use of keyboard interactivity. The default is True.
         visualization : bool, optional
             A boolean flag that indicates whether the simulation will be 
             visualized in meshcat. The default is True.
@@ -47,13 +46,8 @@ class Wheel_sim():
         None.
 
         """
-        # Disable keyboard use for Mac users =(
-        if sys.platform == 'win32':
-            self.use_keyboard = True
-        elif sys.platform == 'linux':
-            self.use_keyboard = True
-        else:
-            self.use_keyboard = False or force_keyboard
+        # Keyboard settings
+        self.use_keyboard = use_keyboard
         
         # Set the visualization and animation options
         self.visualization = visualization
@@ -185,6 +179,10 @@ class Wheel_sim():
                                     physics = False,
                                     initial_cond = True)
         self.angle_tag = initial_target_angle
+        self.sim.set_joint_position(urdf_obj=self.target_obj,
+                                    joint_name='world_to_arrow',
+                                    position=self.angle_tag,
+                                    physics=False)
         self.P = initial_P
         self.D = initial_D
 
