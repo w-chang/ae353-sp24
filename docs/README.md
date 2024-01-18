@@ -213,12 +213,10 @@ conda config --env --set channel_priority strict
 conda clean -a -i
 ```
 
-Now install the Conda-Forge dependencies by running the commands
+Now install the Conda-Forge dependencies by running the command
 
 ```bash
-conda install -y python=3 git numpy scipy pynput matplotlib pybullet
-conda install -y control sympy notebook ipywidgets imageio
-conda install -y imageio-ffmpeg
+conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg
 ```
 
 Once the installation is complete, install condynsate by running the commands
@@ -387,12 +385,10 @@ conda config --env --set channel_priority strict
 conda clean -a -i
 ```
 
-Now install the Conda-Forge dependencies by running the commands
+Now install the Conda-Forge dependencies by running the command
 
 ```bash
-conda install -y python=3 numpy scipy pynput matplotlib pybullet
-conda install -y control sympy notebook ipywidgets imageio
-conda install -y imageio-ffmpeg
+conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg
 ```
 
 Once the installation is complete, install condynsate by running the commands
@@ -570,7 +566,7 @@ conda config --env --set channel_priority strict
 conda clean -a -i
 ```
 
-Now install the Conda-Forge dependencies by running the commands
+Now install the Conda-Forge dependencies by running the command
 
 ```bash
 conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg
