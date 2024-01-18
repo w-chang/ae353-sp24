@@ -68,7 +68,7 @@ class Segbot_sim():
         
             # Load the segbot
             segbot = path + "/segbot_vis/segbot.urdf"
-            self.segbot_obk = self.sim.load_urdf(urdf_path=segbot,
+            self.segbot_obj = self.sim.load_urdf(urdf_path=segbot,
                                             position=[0, 0, 0.527],
                                             fixed=False,
                                             update_vis=True)
@@ -254,14 +254,19 @@ class Segbot_sim():
             # # ACTUATOR
             # # Apply one quater of the controller calculated torque to
             # # each of the four the wheels.
-            # for wheel_name in wheels:
-            #     self.sim.set_joint_torque(urdf_obj=self.cart_obj,
-            #                               joint_name=wheel_name,
-            #                               torque=0.25*torque,
-            #                               show_arrow=True,
-            #                               arrow_scale=0.25,
-            #                               arrow_offset=0.025)
-            
+            self.sim.set_joint_torque(urdf_obj=self.segbot_obj,
+                                      joint_name="chassis_to_left_wheel",
+                                      torque=-2.,
+                                      show_arrow=True,
+                                      arrow_scale=0.25,
+                                      arrow_offset=0.051)
+            self.sim.set_joint_torque(urdf_obj=self.segbot_obj,
+                                      joint_name="chassis_to_right_wheel",
+                                      torque=-2.,
+                                      show_arrow=True,
+                                      arrow_scale=0.25,
+                                      arrow_offset=-0.051)
+           
             # ###################################################################
             # # UPDATE THE PLOTS
             # # This is how we add data points to the animator
