@@ -271,7 +271,9 @@ Open **Anaconda Prompt (Miniconda3)** and run the command
 conda activate ae353
 ```
 
-You should see the prefix to your prompt change from `(base)` to `(ae353)`. Next, change your working directory to wherever you cloned this repository.
+You should see the prefix to your prompt change from `(base)` to `(ae353)`.
+
+Next, change your working directory to wherever you cloned this repository.
 
 #### 2 Get the latest version of the code in Windows
 
@@ -634,7 +636,9 @@ Open the Terminal and run the command
 conda activate ae353
 ```
 
-You should see the prefix to your prompt change from `(base)` to `(ae353)`. Next, change your working directory to wherever you cloned this repository.
+You should see the prefix to your prompt change from `(base)` to `(ae353)`.
+
+Next, change your working directory to wherever you cloned this repository.
 
 #### 2 Get the latest version of the code in MacOS
 
