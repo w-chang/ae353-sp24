@@ -606,7 +606,7 @@ quit()
 
 to quit the Python shell.
 
-#### 2 Clone the ae353-sp24 Repository using Git in MacOS
+#### 3 Clone the ae353-sp24 Repository using Git in MacOS
 
 In your already opened Terminal, navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
 
