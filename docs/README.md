@@ -72,9 +72,11 @@
     
     * [1 Install Miniconda for MacOS](#1-Install-Miniconda-for-MacOS)
     
-    * [2 Install condynsate in a Miniconda virtual environment in MacOS](#2-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
+    * [2 Grant Input Monitoring Access to Terminal in MacOS](2-Grant-Input-Monitoring-Access-to-Terminal-in-MacOS)
     
-    * [3 Clone the ae353-sp24 Repository using Git in MacOS](#3-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
+    * [3 Install condynsate in a Miniconda virtual environment in MacOS](#3-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
+    
+    * [4 Clone the ae353-sp24 Repository using Git in MacOS](#4-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
   
   * [Running Projects in MacOS](#Running-Projects-in-MacOS)
     
@@ -542,7 +544,19 @@ conda --version
 
 You should get a response that lists the version of Miniconda you just installed. If you do not, more help on installation can be found [here](https://docs.conda.io/projects/miniconda/en/latest/).
 
-#### 2 Install condynsate in a Miniconda virtual environment in MacOS
+#### 2 Grant Input Monitoring Access to Terminal in MacOS
+
+To use keyboard interactivity in the projects, you must first grant the Terminal security access to monitor inputs (keyboards and mice). To do this
+
+* Choose Apple menu  > System Settings
+
+* Click Privacy & Security <img src="https://help.apple.com/assets/6529D8627783ACA29F083601/6529D866CFDD5FD5B90BAB1B/en_US/f9979df145e31ea9fb18995403d2b2f6.png" title="" alt="" width="50"> in the sidebar. (You may need to scroll down.)
+
+* Click Input Monitoring on the right.
+
+* For the Terminal app, turn the ability to monitor your input devices on. This may require you to input your password.
+
+#### 3 Install condynsate in a Miniconda virtual environment in MacOS
 
 To create a new Miniconda virtual environment, in your already open Terminal run the command
 
@@ -600,7 +614,7 @@ quit()
 
 to quit the Python shell.
 
-#### 3 Clone the ae353-sp24 Repository using Git in MacOS
+#### 4 Clone the ae353-sp24 Repository using Git in MacOS
 
 In your already opened Terminal, navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
 
