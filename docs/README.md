@@ -16,11 +16,11 @@
   
   * [Windows Installation](#Windows-Installation)
     
-    * [1 Clone the ae353-sp24 Repository using Git in Windows](#1-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
+    * [1 Install Miniconda for Windows](#1-Install-Miniconda-for-Windows)
     
-    * [2 Install Miniconda for Windows](#2-Install-Miniconda-for-Windows)
+    * [2 Install condynsate in a Miniconda virtual environment in Windows](#2-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
     
-    * [3 Install condynsate in a Miniconda virtual environment in Windows](#3-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
+    * [3 Clone the ae353-sp24 Repository using Git in Windows](#3-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
   
   * [Running Projects in Windows](#Running-Projects-in-Windows)
     
