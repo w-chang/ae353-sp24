@@ -72,7 +72,7 @@
     
     * [1 Install Miniconda for MacOS](#1-Install-Miniconda-for-MacOS)
     
-    * [2 Grant Input Monitoring Access to Terminal in MacOS](2-Grant-Input-Monitoring-Access-to-Terminal-in-MacOS)
+    * [2 Grant Input Monitoring Access to Terminal in MacOS](#2-Grant-Input-Monitoring-Access-to-Terminal-in-MacOS)
     
     * [3 Install condynsate in a Miniconda virtual environment in MacOS](#3-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
     
