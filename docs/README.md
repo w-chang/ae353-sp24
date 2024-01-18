@@ -405,7 +405,7 @@ pip install condynsate
 You can check that condynsate installed correctly by running the command
 
 ```bash
-python
+python3
 ```
 
 This starts a Python shell in your Anaconda prompt. Next run the commands
@@ -573,9 +573,7 @@ conda clean -a -i
 Now install the Conda-Forge dependencies by running the commands
 
 ```bash
-conda install -y python=3 git numpy scipy pynput matplotlib pybullet
-conda install -y control sympy notebook ipywidgets imageio
-conda install -y imageio-ffmpeg
+conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg
 ```
 
 Once the installation is complete, install condynsate by running the commands
@@ -588,7 +586,7 @@ pip install condynsate
 You can check that condynsate installed correctly by running the command
 
 ```bash
-python
+python3
 ```
 
 This starts a Python shell in your Terminal. Next run the commands
