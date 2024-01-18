@@ -16,13 +16,11 @@
   
   * [Windows Installation](#Windows-Installation)
     
-    * [1 Install Git for Windows](#1-Install-Git-for-Windows)
+    * [1 Clone the ae353-sp24 Repository using Git in Windows](#1-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
     
-    * [2 Clone the ae353-sp24 Repository using Git in Windows](#2-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
+    * [2 Install Miniconda for Windows](#2-Install-Miniconda-for-Windows)
     
-    * [3 Install Miniconda for Windows](#3-Install-Miniconda-for-Windows)
-    
-    * [4 Install condynsate in a Miniconda virtual environment in Windows](#4-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
+    * [3 Install condynsate in a Miniconda virtual environment in Windows](#3-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
   
   * [Running Projects in Windows](#Running-Projects-in-Windows)
     
@@ -30,9 +28,7 @@
     
     * [2 Get the latest version of the code in Windows](#2-Get-the-latest-version-of-the-code-in-Windows)
     
-    * [3 Activate your Conda environment in Windows](#3-Activate-your-Conda-environment-in-Windows)
-    
-    * [4 Start a Jupyter Notebook in Windows](#4-Start-a-Jupyter-Notebook-in-Windows)
+    * [3 Start a Jupyter Notebook in Windows](#3-Start-a-Jupyter-Notebook-in-Windows)
 
 * [**Linux Usage**](#Linux-Usage)
   
@@ -112,7 +108,7 @@ When we say "open an Anaconda Prompt," what we mean is to start the **Anaconda P
 * Type "anaconda" into the search field.
 * Click **Anaconda Prompt (Miniconda3)**.
 
-Note that this application will only exist after you follow the instructions to [3. Install Miniconda for Windows](#3. Install Miniconda for Windows).
+Note that this application will only exist after you follow the instructions to [1 Install Miniconda for Windows](1-Install-Miniconda-for-Windows).
 
 #### How to run a command in Windows
 
@@ -147,107 +143,7 @@ See documentation on [Find and Open Files using Windows Command Prompt](https://
 
 ### Windows Installation
 
-#### 1 Install Git for Windows
-
-If you do not have Git already installed, download the most recent Git installer for Windows 64 from the [git-scm website](https://git-scm.com/download/win) or just click [here](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Git-VERSION-64-bit and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
-
-Once the wizard is running, click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_1.png?raw=true" alt="git_1" width="495" height="375"/>
-
-Select your desired save location and click next
-
-* We recommend that you do not select a save destination that has any special characters or spaces in the path.
-
-* We also reccomend that you chose a destination that will be near to where you plan on installing Miniconda and cloning the Github repositories. This will make navigating to these repositories from the **git-cmd** application easier. 
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_1_1.png?raw=true" alt="git_1_1" width="495" height="375"/>
-
-Click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_2.png?raw=true" alt="git_2" width="495" height="375"/>
-
-Click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_3.png?raw=true" alt="git_3" width="495" height="375"/>
-
-Click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_4.png?raw=true" alt="git_4" width="495" height="375"/>
-
-Select **Let Git decide** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_5.png?raw=true" alt="git_5" width="495" height="375"/>
-
-Select **Use Git from Git Bash only** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_6.png?raw=true" alt="git_6" width="495" height="375"/>
-
-Select **Use bundled OpenSSH** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_7.png?raw=true" alt="git_7" width="495" height="375"/>
-
-Select **Use the OpenSSL library** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_8.png?raw=true" alt="git_8" width="495" height="375"/>
-
-Select **Checkout Windows-style, commit Unix-style line endings** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_9.png?raw=true" alt="git_9" width="495" height="375"/>
-
-Select **Use Windows' default console window** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_10.png?raw=true" alt="git_10" width="495" height="375"/>
-
-Select **Fast-forward or merge** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_11.png?raw=true" alt="git_11" width="495" height="375"/>
-
-Select **Git Credential Manager** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_12.png?raw=true" alt="git_12" width="495" height="375"/>
-
-Check only **Enable file system caching** then click **next**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_13.png?raw=true" alt="git_13" width="495" height="375"/>
-
-Make sure nothing is checked then click **install**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_14.png?raw=true" alt="git_14" width="495" height="375"/>
-
-Once installation is finished, click **finish**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_15.png?raw=true" alt="git_15" width="495" height="375"/>
-
-Navigate to **C:\Program Files\Git** in your file explorer.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_16.png?raw=true" alt="git_16" width="495" height="375"/>
-
-To create a desktop shortcut to git-cmd (the application that will be used to pull and push Git repositories), right click on **git-cmd**, navigate to **Send to**, then click **Desktop (create shortcut)**.
-
-<img src="https://github.com/w-chang/ae353-sp24/blob/main/Images/git_17.png?raw=true" alt="git_17" width="495" height="375"/>
-
-To verify that Git is installed properly, open **git-cmd** and run the command 
-
-```bash
-Git --version
-```
-
-If Git is installed correctly, you should get a response that lists the version of Git you just installed.
-
-#### 2 Clone the ae353-sp24 Repository using Git in Windows
-
-Open **git-cmd** and navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the [change directory command](#How to change the working directory).
-
-Nest, clone the repository into the current directory by running the command
-
-```bash
-git clone https://github.com/w-chang/ae353-sp24.git
-```
-
-The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
-
-#### 3 Install Miniconda for Windows
+#### 1 Install Miniconda for Windows
 
 If you do not have Miniconda already installed, download the most recent Miniconda installer for Windows 64 from the [miniconda website](https://docs.conda.io/projects/miniconda/en/latest/) or just click [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Miniconda3-latest-Windows-x86_64 and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
 
@@ -295,7 +191,7 @@ conda --version
 
 If Miniconda is installed correctly, you should get a response that lists the version of Miniconda you just installed.
 
-#### 4 Install condynsate in a Miniconda virtual environment in Windows
+#### 2 Install condynsate in a Miniconda virtual environment in Windows
 
 To install condynsate in a Miniconda virtual environment, open **Anaconda Prompt (Miniconda3)** and run the command
 
@@ -357,15 +253,33 @@ quit()
 
 to quit the Python shell and exit out of the Anaconda prompt.
 
+#### 3 Clone the ae353-sp24 Repository using Git in Windows
+
+Open **Anaconda Prompt (Miniconda3)** and navigate to the directory you want to clone the ae353-sp24 code repository into. This is done using the [change directory command](#How to change the working directory).
+
+Nest, clone the repository into the current directory by running the command
+
+```bash
+git clone https://github.com/w-chang/ae353-sp24.git
+```
+
+The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
+
 ### Running Projects in Windows
 
 #### 1 Change your working directory in Windows
 
-Open an **git-cmd** and change your working directory to wherever you cloned this repository.
+Open **Anaconda Prompt (Miniconda3)** and run the command
+
+```
+conda activate ae353
+```
+
+You should see the prefix to your prompt change from `(base)` to `(ae353)`. Next, change your working directory to wherever you cloned this repository.
 
 #### 2 Get the latest version of the code in Windows
 
-Run the commands
+In your already open **Anaconda Prompt (Miniconda3)** run the commands
 
 ```
 git fetch
@@ -374,19 +288,9 @@ git pull
 
 Do not worry, this will not overwrite any of your own work. If you see any errors or warnings, post a note to [Piazza](https://piazza.com/) and course staff will help resolve them.
 
-#### 3 Activate your Conda environment in Windows
+#### 3 Start a Jupyter Notebook in Windows
 
-Open  **Anaconda Prompt (miniconda3)** and run the command
-
-```
-conda activate ae353
-```
-
-You should see the prefix to your prompt change from `(base)` to `(ae353)`. This means you are in the Conda environment you created for work with AE353.
-
-#### 4 Start a Jupyter Notebook in Windows
-
-Run the command
+In your already open **Anaconda Prompt (miniconda3)** run the command
 
 ```
 jupyter notebook
