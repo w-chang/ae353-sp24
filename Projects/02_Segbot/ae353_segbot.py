@@ -47,15 +47,13 @@ class Segbot_sim():
         None.
 
         """
-        # Keyboard settings
-        self.use_keyboard = use_keyboard
-            
         # Set the visualization and animation options
         self.visualization = visualization
         self.animation = animation
 
         # Initialize and instance of the simulator
-        self.sim = Simulator(visualization=visualization,
+        self.sim = Simulator(keyboard=use_keyboard,
+                             visualization=visualization,
                              visualization_fr=visualization_fr,
                              animation=animation,
                              animation_fr=animation_fr)
@@ -81,35 +79,41 @@ class Segbot_sim():
                                             fixed=False,
                                             update_vis=True)
         
-        # # If there is no animation, do not add subplots
-        # if not animation:
-        #     return
+        # If there is no animation, do not add subplots
+        if not animation:
+            return
         
-        # # Make plot for state and input
-        # self.p1, self.a1 = self.sim.add_subplot(n_artists=2,
-        #                                         subplot_type='line',
-        #                                         title="Angles vs Time",
-        #                                         x_label="Time [Seconds]",
-        #                                         y_label="Angles [Deg / Rad]",
-        #                                         colors=["m", "c"],
-        #                                         line_widths=[2.5, 2.5],
-        #                                         line_styles=["-", "-"],
-        #                                         labels=["Pendulum [Deg]",
-        #                                                 "Wheel [Rad]"],
-        #                                         h_zero_line=True)
-        # self.p2, self.a2 = self.sim.add_subplot(n_artists=1,
-        #                                         subplot_type='line',
-        #                                         title="Torque vs Time",
-        #                                         x_label="Time [Seconds]",
-        #                                         y_label="Torque [Nm]",
-        #                                         y_lim=[-5.,5.],
-        #                                         colors=["k"],
-        #                                         line_widths=[2.5],
-        #                                         line_styles=["-"],
-        #                                         h_zero_line=True)
+        # Make plot for state and input
+        self.p1, self.a1 = self.sim.add_subplot(n_artists=1,
+                                                subplot_type='line',
+                                                title="Pitch",
+                                                x_label="Time [Seconds]",
+                                                y_label="Pitch [Rad]",
+                                                colors=["m"],
+                                                line_widths=[2.5],
+                                                line_styles=["-"])
+        self.p2, self.a2 = self.sim.add_subplot(n_artists=1,
+                                                subplot_type='line',
+                                                title="Lateral Position",
+                                                y_label="Time [Seconds]",
+                                                x_label="Lateral Position [m]",
+                                                x_lim=[-2.5, 2.5],
+                                                colors=["c"],
+                                                line_widths=[2.5],
+                                                line_styles=["-"])
+        self.p3, self.a3 = self.sim.add_subplot(n_artists=2,
+                                                subplot_type='line',
+                                                title="Torque vs Time",
+                                                x_label="Time [Seconds]",
+                                                y_label="Torque [Nm]",
+                                                y_lim=[-5.,5.],
+                                                colors=["r", "b"],
+                                                line_widths=[2.5, 2.5],
+                                                line_styles=["-", "-"],
+                                                labels=["Left", "Right"])
         
-        # # Open the animator GUI
-        # self.sim.open_animator_gui()
+        # Open the animator GUI
+        self.sim.open_animator_gui()
 
 
     def run(self,
@@ -166,10 +170,6 @@ class Segbot_sim():
                 A list of the time stamps in seconds.
 
         """
-        # Check max_time is valid
-        if not self.use_keyboard and max_time == None:
-            max_time = 10.0
-            
         # Set the initial values
         self.sim.set_joint_velocity(urdf_obj=self.station_obj,
                                 joint_name='space_to_ring',
@@ -190,40 +190,17 @@ class Segbot_sim():
         # torque_history = []
 
         # Await run command
-        if self.use_keyboard:
-            self.sim.await_keypress(key='enter')
-        else:
-            time.sleep(1)
+        self.sim.await_keypress(key='enter')
             
         # Run the simulation loop
         while(not self.sim.is_done):
-            # ##################################################################
-            # # SENSOR
-            # # Use a sensor to collect the pendulum angle and rate
-            # pendulum_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-            #                                       joint_name='chassis_to_arm')
-            # pendulum_angle = pendulum_state['position']
-            # pendulum_rate = pendulum_state['velocity']
-            
-            # # Use a sensor to collect the angles and rates of each wheel
-            # wheel1_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-            #                                    joint_name='chassis_to_wheel_1')
-            # wheel2_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-            #                                    joint_name='chassis_to_wheel_2')
-            # wheel3_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-            #                                    joint_name='chassis_to_wheel_3')
-            # wheel4_state = self.sim.get_joint_state(urdf_obj=self.cart_obj,
-            #                                    joint_name='chassis_to_wheel_4')
-            
-            # # Calculate the average wheel angle and velocity
-            # wheel_angle = 0.25*(wheel1_state['position']+
-            #                     wheel2_state['position']+
-            #                     wheel3_state['position']+
-            #                     wheel4_state['position'])
-            # wheel_rate = 0.25*(wheel1_state['velocity']+
-            #                    wheel2_state['velocity']+
-            #                    wheel3_state['velocity']+
-            #                    wheel4_state['velocity'])
+            ##################################################################
+            # SENSOR
+            # Use a sensor to collect the pendulum angle and rate
+            segbot_state = self.sim.get_base_state(urdf_obj=self.segbot_obj,
+                                                   body_coords=False)
+            segbot_pitch = segbot_state['pitch']
+            segbot_lat_pos = segbot_state['position'][1]
             
             # ###################################################################
             # # CONTROLLER
@@ -251,33 +228,33 @@ class Segbot_sim():
             # # each of the four the wheels.
             self.sim.set_joint_torque(urdf_obj=self.segbot_obj,
                                       joint_name="chassis_to_left_wheel",
-                                      torque=-2.,
+                                      torque=-1.5,
                                       show_arrow=True,
                                       arrow_scale=0.25,
                                       arrow_offset=0.051)
             self.sim.set_joint_torque(urdf_obj=self.segbot_obj,
                                       joint_name="chassis_to_right_wheel",
-                                      torque=-2.,
+                                      torque=1.5,
                                       show_arrow=True,
                                       arrow_scale=0.25,
                                       arrow_offset=-0.051)
            
-            # ###################################################################
-            # # UPDATE THE PLOTS
-            # # This is how we add data points to the animator
-            # # Plot the pendulum angle, wheel angle, and torque
-            # self.sim.add_subplot_point(subplot_index=self.p1,
-            #                            artist_index=self.a1[0],
-            #                            x=self.sim.time,
-            #                            y=180.*pendulum_angle/np.pi)
-            # self.sim.add_subplot_point(subplot_index=self.p1,
-            #                            artist_index=self.a1[1],
-            #                            x=self.sim.time,
-            #                            y=wheel_angle)
+            ###################################################################
+            # UPDATE THE PLOTS
+            # This is how we add data points to the animator
+            # Plot the pendulum angle, wheel angle, and torque
+            self.sim.add_subplot_point(subplot_index=self.p1,
+                                       artist_index=self.a1[0],
+                                       x=self.sim.time,
+                                       y=segbot_pitch)
+            self.sim.add_subplot_point(subplot_index=self.p2,
+                                        artist_index=self.a2[0],
+                                        x=segbot_lat_pos,
+                                        y=self.sim.time)
             # self.sim.add_subplot_point(subplot_index=self.p2,
-            #                            artist_index=self.a2[0],
-            #                            x=self.sim.time,
-            #                            y=torque)
+            #                             artist_index=self.a2[0],
+            #                             x=self.sim.time,
+            #                             y=torque)
             
             ###################################################################
             # STEP THE SIMULATION
