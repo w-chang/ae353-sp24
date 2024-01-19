@@ -8,7 +8,6 @@ This modules provides a backend for the ae353 cart example
 from condynsate.simulator import Simulator
 from pathlib import Path
 import numpy as np
-import time
 
 
 ###############################################################################
@@ -26,7 +25,7 @@ class Cart_sim():
 
         Parameters
         ----------
-        keyboard : bool, optional
+        use_keyboard : bool, optional
             A boolean flag that indicates whether the simulation will allow
             the use of keyboard interactivity. The default is True.
         visualization : bool, optional
@@ -47,15 +46,13 @@ class Cart_sim():
         None.
 
         """
-        # Keyboard settings
-        self.use_keyboard = use_keyboard
-            
         # Set the visualization and animation options
         self.visualization = visualization
         self.animation = animation
 
         # Initialize and instance of the simulator
-        self.sim = Simulator(visualization=visualization,
+        self.sim = Simulator(keyboard=use_keyboard,
+                             visualization=visualization,
                              visualization_fr=visualization_fr,
                              animation=animation,
                              animation_fr=animation_fr)
@@ -186,11 +183,7 @@ class Cart_sim():
             data["time"] : List of Floats
                 A list of the time stamps in seconds.
 
-        """
-        # Check max_time is valid
-        if not self.use_keyboard and max_time == None:
-            max_time = 10.0
-    
+        """    
         # Set the initial values
         self.sim.set_joint_position(urdf_obj=self.cart_obj,
                                 joint_name='chassis_to_arm',
@@ -231,10 +224,7 @@ class Cart_sim():
         torque_history = []
 
         # Await run command
-        if self.use_keyboard:
-            self.sim.await_keypress(key='enter')
-        else:
-            time.sleep(1)
+        self.sim.await_keypress(key='enter')
             
         # Run the simulation loop
         while(not self.sim.is_done):
@@ -269,11 +259,19 @@ class Cart_sim():
             ###################################################################
             # CONTROLLER
             # Get the torque as calculated by the controller
+            sd = self.sim.is_pressed("shift+d")
+            sa = self.sim.is_pressed("shift+a")
+            d = self.sim.is_pressed("d")
+            a = self.sim.is_pressed("a")
             inputs = controller.run(pendulum_angle=pendulum_angle,
                                     wheel_angle=wheel_angle,
                                     pendulum_velocity=pendulum_rate,
                                     wheel_velocity=wheel_rate,
-                                    time=self.sim.time)
+                                    time=self.sim.time,
+                                    sd=sd,
+                                    sa=sa,
+                                    d=d,
+                                    a=a)
             torque = inputs[0]
             
             ###################################################################

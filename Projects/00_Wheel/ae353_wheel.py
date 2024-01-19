@@ -46,9 +46,6 @@ class Wheel_sim():
         None.
 
         """
-        # Keyboard settings
-        self.use_keyboard = use_keyboard
-        
         # Set the visualization and animation options
         self.visualization = visualization
         self.animation = animation
@@ -60,7 +57,8 @@ class Wheel_sim():
         self.D = 0.0
 
         # Initialize and instance of the simulator
-        self.sim = Simulator(visualization=visualization,
+        self.sim = Simulator(keyboard=use_keyboard,
+                             visualization=visualization,
                              visualization_fr=visualization_fr,
                              animation=animation,
                              animation_fr=animation_fr)
@@ -168,10 +166,6 @@ class Wheel_sim():
                 A list of all torques applied during the simulation.
 
         """
-        # Check max_time is valid
-        if not self.use_keyboard and max_time == None:
-            max_time = 10.0
-
         # Set the initial values
         self.sim.set_joint_position(urdf_obj = self.wheel_obj,
                                     joint_name = "ground_to_axle",
@@ -198,10 +192,7 @@ class Wheel_sim():
         torque_history = []
 
         # Await run command
-        if self.use_keyboard:
-            self.sim.await_keypress(key='enter')
-        else:
-            time.sleep(1)
+        self.sim.await_keypress(key='enter')
             
         # Run the simulation
         while( not self.sim.is_done ):
@@ -272,38 +263,36 @@ class Wheel_sim():
             
             ###################################################################
             # UPDATE THE TARGET ANGLE
-            if self.use_keyboard: 
-                # Iterate the target angle
-                self.angle_tag = self.sim.iterate_val(curr_val=self.angle_tag,
-                                                      down_key='a',
-                                                      up_key='d',
-                                                      iter_val=0.03,
-                                                      min_val=-3.1415927,
-                                                      max_val=3.1415927)
-                    
-                # Adjust the target arrow so that it is always 
-                # pointing in the target angle direction
-                self.sim.set_joint_position(urdf_obj=self.target_obj,
-                                            joint_name='world_to_arrow',
-                                            position=self.angle_tag,
-                                            physics=False)
+            # Iterate the target angle
+            self.angle_tag = self.sim.iterate_val(curr_val=self.angle_tag,
+                                                  down_key='a',
+                                                  up_key='d',
+                                                  iter_val=0.03,
+                                                  min_val=-3.1415927,
+                                                  max_val=3.1415927)
+                
+            # Adjust the target arrow so that it is always 
+            # pointing in the target angle direction
+            self.sim.set_joint_position(urdf_obj=self.target_obj,
+                                        joint_name='world_to_arrow',
+                                        position=self.angle_tag,
+                                        physics=False)
                 
             ###################################################################
             # UPDATE THE CONTROL GAINS
-            if self.use_keyboard: 
-                # Iterate the proportional and derivative gains
-                self.P = self.sim.iterate_val(curr_val=self.P,
-                                              down_key='f',
-                                              up_key='r',
-                                              iter_val=0.02,
-                                              min_val=0,
-                                              max_val=10)
-                self.D = self.sim.iterate_val(curr_val=self.D,
-                                              down_key='g',
-                                              up_key='t',
-                                              iter_val=0.02,
-                                              min_val=0,
-                                              max_val=10)
+            # Iterate the proportional and derivative gains
+            self.P = self.sim.iterate_val(curr_val=self.P,
+                                          down_key='f',
+                                          up_key='r',
+                                          iter_val=0.02,
+                                          min_val=0,
+                                          max_val=10)
+            self.D = self.sim.iterate_val(curr_val=self.D,
+                                          down_key='g',
+                                          up_key='t',
+                                          iter_val=0.02,
+                                          min_val=0,
+                                          max_val=10)
             
             ###################################################################
             # STEP THE SIMULATION
