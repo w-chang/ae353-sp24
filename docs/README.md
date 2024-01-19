@@ -15,13 +15,12 @@
     * [How to change the working directory in Windows](#How-to-change-the-working-directory-in-Windows)
   
   * [Windows Installation](#Windows-Installation)
-    
     * [1 Install Miniconda for Windows](#1-Install-Miniconda-for-Windows)
     
     * [2 Install condynsate in a Miniconda virtual environment in Windows](#2-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
     
     * [3 Clone the ae353-sp24 Repository using Git in Windows](#3-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
-  
+    
   * [Running Projects in Windows](#Running-Projects-in-Windows)
     
     * [1 Change your working directory in Windows](#1-Change-your-working-directory-in-Windows)
@@ -29,7 +28,7 @@
     * [2 Get the latest version of the code in Windows](#2-Get-the-latest-version-of-the-code-in-Windows)
     
     * [3 Start a Jupyter Notebook in Windows](#3-Start-a-Jupyter-Notebook-in-Windows)
-
+  
 * [**Linux Usage**](#Linux-Usage)
   
   * [Linux Command Line Basics](#Linux-Command-Line-Basics)
@@ -139,7 +138,7 @@ C:\Users\jakek\OneDrive\Documents\ae353-sp23>
 
 See documentation on [Find and Open Files using Windows Command Prompt](https://www.faqforge.com/windows/windows-10/find-and-open-files-using-windows-command-prompt/) for a way to search for the directory location of files on your computer.
 
-### Windows Installation
+### securotyWindows Installation
 
 #### 1 Install Miniconda for Windows
 
@@ -556,9 +555,13 @@ To use keyboard interactivity in the projects, you must first grant the Terminal
 
 * Click Privacy & Security <img src="https://help.apple.com/assets/6529D8627783ACA29F083601/6529D866CFDD5FD5B90BAB1B/en_US/f9979df145e31ea9fb18995403d2b2f6.png" title="" alt="" width="50"> in the sidebar. (You may need to scroll down.)
 
-* Click Input Monitoring on the right.
+* Click the Input Monitoring tab.
 
-* For the Terminal app, turn the ability to monitor your input devices on. This may require you to input your password.
+* Click the box next to Terminal to allow the Terminal access to read keyboard inputs. This may require you to input your password.
+
+* Now, click the Accessibility tab. This will be near the Input Monitoring tab.
+
+* Click the box next to Terminal to allow the Terminal accessibility privileges. This may require you to input your password.
 
 #### 3 Install condynsate in a Miniconda virtual environment in MacOS
 
