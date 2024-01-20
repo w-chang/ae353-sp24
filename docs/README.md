@@ -590,7 +590,7 @@ conda clean -a -i
 Now install the Conda-Forge dependencies by running the command
 
 ```bash
-conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg
+conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg pyqt pyside6
 ```
 
 Once the installation is complete, install condynsate by running the commands
