@@ -8,7 +8,6 @@ This modules provides a backend for the ae353 segbot example
 from condynsate.simulator import Simulator
 from pathlib import Path
 import numpy as np
-import time
 
 
 ###############################################################################
@@ -84,33 +83,24 @@ class Segbot_sim():
             return
         
         # Make plot for state and input
-        self.p1, self.a1 = self.sim.add_subplot(n_artists=1,
+        self.p1, self.a1 = self.sim.add_subplot(n_artists=2,
                                                 subplot_type='line',
-                                                title="Pitch",
+                                                title="Angles vs. Time",
                                                 x_label="Time [Seconds]",
-                                                y_label="Pitch [Rad]",
-                                                colors=["m"],
-                                                line_widths=[2.5],
-                                                line_styles=["-"])
-        self.p2, self.a2 = self.sim.add_subplot(n_artists=1,
+                                                y_label="Angles [Rad]",
+                                                colors=["m", "c"],
+                                                line_widths=[2.5, 2.5],
+                                                line_styles=["-", "-"],
+                                                labels=["Pitch", "Yaw"])
+        self.p2, self.a2 = self.sim.add_subplot(n_artists=2,
                                                 subplot_type='line',
-                                                title="Lateral Position",
-                                                y_label="Time [Seconds]",
-                                                x_label="Lateral Position [m]",
-                                                x_lim=[-2.5, 2.5],
-                                                colors=["c"],
-                                                line_widths=[2.5],
-                                                line_styles=["-"])
-        self.p3, self.a3 = self.sim.add_subplot(n_artists=2,
-                                                subplot_type='line',
-                                                title="Torque vs Time",
+                                                title="Position vs. Time",
                                                 x_label="Time [Seconds]",
-                                                y_label="Torque [Nm]",
-                                                y_lim=[-5.,5.],
+                                                y_label="Positions [Meters]",
                                                 colors=["r", "b"],
                                                 line_widths=[2.5, 2.5],
                                                 line_styles=["-", "-"],
-                                                labels=["Left", "Right"])
+                                                labels=["Lat", "Long"])
         
         # Open the animator GUI
         self.sim.open_animator_gui()
@@ -178,8 +168,8 @@ class Segbot_sim():
                                 physics=False)
         
         
-        # # Reset the controller
-        # controller.reset()
+        # Reset the controller
+        controller.reset()
         
         # # Create a lists to hold the simulation data
         # time_history = []
@@ -197,20 +187,49 @@ class Segbot_sim():
             ##################################################################
             # SENSOR
             # Use a sensor to collect the pendulum angle and rate
-            segbot_state = self.sim.get_base_state(urdf_obj=self.segbot_obj,
-                                                   body_coords=False)
-            segbot_pitch = segbot_state['pitch']
-            segbot_lat_pos = segbot_state['position'][1]
+            body_state = self.sim.get_base_state(urdf_obj=self.segbot_obj,
+                                                 body_coords=True)
+            world_state = self.sim.get_base_state(urdf_obj=self.segbot_obj,
+                                                  body_coords=False)
+            pitch = body_state['pitch']
+            pitch_vel = body_state['angular velocity'][1]
+            yaw = body_state['yaw']
+            yaw_vel = body_state['angular velocity'][2]
+            long_pos = world_state['position'][0]
+            long_vel = world_state['velocity'][0]
+            lat_pos = world_state['position'][1]
+            lat_vel = world_state['velocity'][1]
             
-            # ###################################################################
-            # # CONTROLLER
-            # # Get the torque as calculated by the controller
-            # inputs = controller.run(pendulum_angle=pendulum_angle,
-            #                         wheel_angle=wheel_angle,
-            #                         pendulum_velocity=pendulum_rate,
-            #                         wheel_velocity=wheel_rate,
-            #                         time=self.sim.time)
-            # torque = inputs[0]
+            ###################################################################
+            # CONTROLLER
+            # Get the torque as calculated by the controller
+            sw = self.sim.is_pressed("shift+w")
+            w = self.sim.is_pressed("w")
+            ss = self.sim.is_pressed("shift+s")
+            s = self.sim.is_pressed("s")
+            sd = self.sim.is_pressed("shift+d")
+            d = self.sim.is_pressed("d")
+            sa = self.sim.is_pressed("shift+a")
+            a = self.sim.is_pressed("a")
+            inputs = controller.run(pitch=pitch,
+                                    pitch_velocity=pitch_vel,
+                                    yaw=yaw,
+                                    yaw_vel=yaw_vel,
+                                    lateral_position=lat_pos,
+                                    lateral_velocity=lat_vel,
+                                    longitudinal_position=long_pos,
+                                    longitudinal_velocity=long_vel,
+                                    time=self.sim.time,
+                                    sw=sw,
+                                    w=w,
+                                    ss=ss,
+                                    s=s,
+                                    sd=sd,
+                                    d=d,
+                                    sa=sa,
+                                    a=a)
+            left_torque = -inputs[0]
+            right_torque = -inputs[1]
             
             # ###################################################################
             # # SIMULATION DATA
@@ -228,13 +247,13 @@ class Segbot_sim():
             # # each of the four the wheels.
             self.sim.set_joint_torque(urdf_obj=self.segbot_obj,
                                       joint_name="chassis_to_left_wheel",
-                                      torque=-1.5,
+                                      torque=left_torque,
                                       show_arrow=True,
                                       arrow_scale=0.25,
                                       arrow_offset=0.051)
             self.sim.set_joint_torque(urdf_obj=self.segbot_obj,
                                       joint_name="chassis_to_right_wheel",
-                                      torque=1.5,
+                                      torque=right_torque,
                                       show_arrow=True,
                                       arrow_scale=0.25,
                                       arrow_offset=-0.051)
@@ -242,19 +261,22 @@ class Segbot_sim():
             ###################################################################
             # UPDATE THE PLOTS
             # This is how we add data points to the animator
-            # Plot the pendulum angle, wheel angle, and torque
             self.sim.add_subplot_point(subplot_index=self.p1,
                                        artist_index=self.a1[0],
                                        x=self.sim.time,
-                                       y=segbot_pitch)
+                                       y=pitch)
+            self.sim.add_subplot_point(subplot_index=self.p1,
+                                       artist_index=self.a1[1],
+                                       x=self.sim.time,
+                                       y=yaw)
             self.sim.add_subplot_point(subplot_index=self.p2,
-                                        artist_index=self.a2[0],
-                                        x=segbot_lat_pos,
-                                        y=self.sim.time)
-            # self.sim.add_subplot_point(subplot_index=self.p2,
-            #                             artist_index=self.a2[0],
-            #                             x=self.sim.time,
-            #                             y=torque)
+                                       artist_index=self.a2[0],
+                                       x=self.sim.time,
+                                       y=lat_pos)
+            self.sim.add_subplot_point(subplot_index=self.p2,
+                                       artist_index=self.a2[1],
+                                       x=self.sim.time,
+                                       y=long_pos)
             
             ###################################################################
             # STEP THE SIMULATION
@@ -286,5 +308,5 @@ class Segbot_sim():
         #         'pendulum_velocity' : pendulum_velocity_history,
         #         'wheel_velocity' : wheel_velocity_history,
         #         'torque' : torque_history}
-        # return data
+        return val
             
