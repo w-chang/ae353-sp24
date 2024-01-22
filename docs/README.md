@@ -259,6 +259,8 @@ Next, clone the repository into the current directory by running the command
 git clone https://github.com/w-chang/ae353-sp24.git
 ```
 
+You may need to select your credential manager. Select "*manager*" from the popup window and then log into github.com using your github account. 
+
 The ae353-sp24 code repository is now cloned to your machine. You will find all design projects in this repository.
 
 ### Running Projects in Windows
