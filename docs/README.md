@@ -559,11 +559,11 @@ To use keyboard interactivity in the projects, you must first grant the Terminal
 
 * Click the Input Monitoring tab.
 
-* Click the box next to Terminal to allow the Terminal access to read keyboard inputs. This may require you to input your password.
+* You may need to add Terminal to the Input Monitoring list. To do this, click the **+** button. Now locate the Terminal app in the Apps/Utilities folder and add it to the Input Monitoring list. Return to the Input Monitoring page and click the box next to Terminal to allow the Terminal access to read keyboard inputs. This may require you to input your password. **If you did not need to add the Terminal app, you still need to click the box next to the Terminal app to allow input monitoring**.
 
 * Now, click the Accessibility tab. This will be near the Input Monitoring tab.
 
-* Click the box next to Terminal to allow the Terminal accessibility privileges. This may require you to input your password.
+* You may need to add Terminal to the Accessibility list. To do this, click the **+** button. Now locate the Terminal app in the Apps/Utilities folder and add it to the Accessibility list. Return to the Accessibility page and click the box next to Terminal to allow the Terminal accessibility privileges. This may require you to input your password. **If you did not need to add the Terminal app, you still need to click the box next to the Terminal app to allow accessibility**.
 
 #### 3 Install condynsate in a Miniconda virtual environment in MacOS
 
