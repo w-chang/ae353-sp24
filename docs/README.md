@@ -211,7 +211,7 @@ Once you've ensured the virtual environment is activated, configure it by runnin
 ```bash
 conda config --env --add channels conda-forge
 conda config --env --set channel_priority strict
-conda clean -a -i
+conda clean -a -y
 ```
 
 Now install the Conda-Forge dependencies by running the command
@@ -388,7 +388,7 @@ Once you've ensured the virtual environment is activated, configure it by runnin
 ```bash
 conda config --env --add channels conda-forge
 conda config --env --set channel_priority strict
-conda clean -a -i
+conda clean -a -y
 ```
 
 Now install the Conda-Forge dependencies by running the command
@@ -586,7 +586,7 @@ Once you've ensured the virtual environment is activated, configure it by runnin
 ```bash
 conda config --env --add channels conda-forge
 conda config --env --set channel_priority strict
-conda clean -a -i
+conda clean -a -y
 ```
 
 Now install the Conda-Forge dependencies by running the command
