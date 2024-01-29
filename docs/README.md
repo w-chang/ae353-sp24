@@ -15,12 +15,13 @@
     * [How to change the working directory in Windows](#How-to-change-the-working-directory-in-Windows)
   
   * [Windows Installation](#Windows-Installation)
+    
     * [1 Install Miniconda for Windows](#1-Install-Miniconda-for-Windows)
     
     * [2 Install condynsate in a Miniconda virtual environment in Windows](#2-Install-condynsate-in-a-Miniconda-virtual-environment-in-Windows)
     
     * [3 Clone the ae353-sp24 Repository using Git in Windows](#3-Clone-the-ae353-sp24-Repository-using-Git-in-Windows)
-    
+  
   * [Running Projects in Windows](#Running-Projects-in-Windows)
     
     * [1 Change your working directory in Windows](#1-Change-your-working-directory-in-Windows)
@@ -28,7 +29,7 @@
     * [2 Get the latest version of the code in Windows](#2-Get-the-latest-version-of-the-code-in-Windows)
     
     * [3 Start a Jupyter Notebook in Windows](#3-Start-a-Jupyter-Notebook-in-Windows)
-  
+
 * [**Linux Usage**](#Linux-Usage)
   
   * [Linux Command Line Basics](#Linux-Command-Line-Basics)
@@ -138,9 +139,13 @@ C:\Users\jakek\OneDrive\Documents\ae353-sp23>
 
 See documentation on [Find and Open Files using Windows Command Prompt](https://www.faqforge.com/windows/windows-10/find-and-open-files-using-windows-command-prompt/) for a way to search for the directory location of files on your computer.
 
-### securotyWindows Installation
+### Windows Installation
 
 #### 1 Install Miniconda for Windows
+
+- **If you already have Miniconda installed, you can ignore this step.**
+
+- **If you have some other distribution of conda installed (Anaconda, Miniforge, etc.), we reccomend that you first uninstall that distribution then install Miniconda.**
 
 If you do not have Miniconda already installed, download the most recent Miniconda installer for Windows 64 from the [miniconda website](https://docs.conda.io/projects/miniconda/en/latest/) or just click [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) to download it automatically. Once the .exe is downloaded, run it. The .exe file has the format Miniconda3-latest-Windows-x86_64 and will be in your default downloads folder C:\Users\USER NAME\Downloads. 
 
@@ -344,6 +349,10 @@ The ae353-sp24 code repository is now cloned to your machine. You will find all 
 
 #### 2 Install Miniconda for Linux
 
+- **If you already have Miniconda installed, you can ignore this step.**
+
+- **If you have some other distribution of conda installed (Anaconda, Miniforge, etc.), we reccomend that you first uninstall that distribution then install Miniconda.**
+
 If you do not have Miniconda already installed, run these four commands in the Terminal to quickly and quietly install the latest 64-bit version of the installer.
 
 ```bash
@@ -524,9 +533,11 @@ See documentation on [Specify files and folders in Terminal on Mac](https://supp
 
 #### 1 Install Miniconda for MacOS
 
-If you do not have Miniconda already installed, open the Terminal.
+* **If you already have Miniconda installed, you can ignore this step.**
 
-Run these four commands to quickly and quietly install the latest 64-bit version of the installer.
+* **If you have some other distribution of conda installed (Anaconda, Miniforge, etc.), we reccomend that you first uninstall that distribution then install Miniconda.**
+
+If you do not have Miniconda already installed, open the Terminal. Run these four commands to quickly and quietly install the latest 64-bit version of the installer.
 
 ```bash
 mkdir -p ~/miniconda3
@@ -539,6 +550,7 @@ rm -rf ~/miniconda3/miniconda.sh
 
 ```bash
 ~/miniconda3/bin/conda init bash
+~/miniconda3/bin/conda init zsh
 ```
 
 To verify that Miniconda is installed properly,  run the command 
@@ -598,7 +610,6 @@ conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sym
 Once the installation is complete, install condynsate by running the commands
 
 ```bash
-
 pip cache purge
 pip install condynsate
 ```
