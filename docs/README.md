@@ -537,11 +537,22 @@ See documentation on [Specify files and folders in Terminal on Mac](https://supp
 
 * **If you have some other distribution of conda installed (Anaconda, Miniforge, etc.), we reccomend that you first uninstall that distribution then install Miniconda.**
 
-If you do not have Miniconda already installed, open the Terminal. Run these four commands to quickly and quietly install the latest 64-bit version of the installer.
+If you do not have Miniconda already installed, open the Terminal. The installation varies for **M1** machines and **Intel** machines. Both are shown below:
+
+* If your machine uses **ARM64** archtecture (**M1**), then run these four commands to quickly and quietly install the latest 64-bit version of the **ARM64** installer on your **M1** machine.
 
 ```bash
 mkdir -p ~/miniconda3
 curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+```
+
+* If your machine uses **x86_64** archtecture (**Intel**), then run these four commands to quickly and quietly install the latest 64-bit version of the **x86_64** installer on your **Intel** machine.
+
+```bash
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ```
