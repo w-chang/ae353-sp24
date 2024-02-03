@@ -70,13 +70,15 @@
   
   * [MacOS Installation](#MacOS-Installation)
     
-    * [1 Install Miniconda for MacOS](#1-Install-Miniconda-for-MacOS)
+    * [1 Install xcode select for MacOS](#1-Install-xcode-select-for-MacOS)
     
-    * [2 Grant Input Monitoring Access to Terminal in MacOS](#2-Grant-Input-Monitoring-Access-to-Terminal-in-MacOS)
+    * [2 Install Miniconda for MacOS](#2-Install-Miniconda-for-MacOS)
     
-    * [3 Install condynsate in a Miniconda virtual environment in MacOS](#3-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
+    * [3 Grant Input Monitoring Access to Terminal in MacOS](#3-Grant-Input-Monitoring-Access-to-Terminal-in-MacOS)
     
-    * [4 Clone the ae353-sp24 Repository using Git in MacOS](#4-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
+    * [4 Install condynsate in a Miniconda virtual environment in MacOS](#4-Install-condynsate-in-a-Miniconda-virtual-environment-in-MacOS)
+    
+    * [5 Clone the ae353-sp24 Repository using Git in MacOS](#5-Clone-the-ae353-sp24-Repository-using-Git-in-MacOS)
   
   * [Running Projects in MacOS](#Running-Projects-in-MacOS)
     
@@ -222,13 +224,12 @@ conda clean -a -y
 Now install the Conda-Forge dependencies by running the command
 
 ```bash
-conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg
+conda install -y python=3 git control matplotlib notebook numpy pybullet pynput pyside6 sympy
 ```
 
 Once the installation is complete, install condynsate by running the commands
 
 ```bash
-python -m pip install --upgrade pip
 pip cache purge
 pip install condynsate
 ```
@@ -403,13 +404,12 @@ conda clean -a -y
 Now install the Conda-Forge dependencies by running the command
 
 ```bash
-conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg
+conda install -y python=3 git control matplotlib notebook numpy pybullet pynput pyside6 sympy
 ```
 
 Once the installation is complete, install condynsate by running the commands
 
 ```bash
-python3 -m pip install --upgrade pip
 pip cache purge
 pip install condynsate
 ```
@@ -531,15 +531,29 @@ See documentation on [Specify files and folders in Terminal on Mac](https://supp
 
 ### MacOS Installation
 
-#### 1 Install Miniconda for MacOS
+#### 1 Install xcode select for MacOS
 
-* **If you already have Miniconda installed, you can ignore this step.**
+If you do not already have Command Line Tools installed, open the Terminal and run the command
+
+```Bash
+xcode-select --install
+```
+
+Click the Install button on the window that opens and agree to the license agreement.
+
+#### 2 Install Miniconda for MacOS
+
+* **Make sure your machine's operating system is updated to the most current version.**
+
+* **The installation steps for M1 machines vs. x86_86 machines are different.**
 
 * **If you have some other distribution of conda installed (Anaconda, Miniforge, etc.), we reccomend that you first uninstall that distribution then install Miniconda.**
 
-If you do not have Miniconda already installed, open the Terminal. The installation varies for **M1** machines and **Intel** machines. Both are shown below:
+##### ARM64 archtecture (M1)
 
-* If your machine uses **ARM64** archtecture (**M1**), then run these four commands to quickly and quietly install the latest 64-bit version of the **ARM64** installer on your **M1** machine.
+* Open the Terminal.
+
+* Run these four commands to quickly and quietly install the latest 64-bit version of the **ARM64** installer on your **M1** machine.
 
 ```bash
 mkdir -p ~/miniconda3
@@ -548,47 +562,78 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ```
 
-* If your machine uses **x86_64** archtecture (**Intel**), then run these four commands to quickly and quietly install the latest 64-bit version of the **x86_64** installer on your **Intel** machine.
+* Restart the terminal.
 
-```bash
-mkdir -p ~/miniconda3
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm -rf ~/miniconda3/miniconda.sh
-```
-
-**Restart the terminal.**  After installing, initialize your newly-installed Miniconda. 
+* Initialize your newly-installed Miniconda by running the commands
 
 ```bash
 ~/miniconda3/bin/conda init bash
 ~/miniconda3/bin/conda init zsh
 ```
 
-To verify that Miniconda is installed properly,  run the command 
+* To verify that Miniconda is installed properly, run the command
 
 ```bash
 conda --version
 ```
 
-You should get a response that lists the version of Miniconda you just installed. If you do not, more help on installation can be found [here](https://docs.conda.io/projects/miniconda/en/latest/).
+* You should get a response that lists the version of Miniconda you just installed. If you do not, more help on installation can be found [here](https://docs.conda.io/projects/miniconda/en/latest/).
 
-#### 2 Grant Input Monitoring Access to Terminal in MacOS
+##### x86_64 archtecture (Intel)
+
+- Open the Terminal.
+
+- Run these four commands to quickly and quietly install the latest 64-bit version of the **x86_64** installer on your **Intel** machine.
+
+```bash
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+```
+
+- Restart the terminal.
+
+- Initialize your newly-installed Miniconda by running the commands
+
+```bash
+~/miniconda3/bin/conda init bash
+~/miniconda3/bin/conda init zsh
+```
+
+- To verify that Miniconda is installed properly, run the command
+
+```bash
+conda --version
+```
+
+- You should get a response that lists the version of Miniconda you just installed. If you do not, more help on installation can be found [here](https://docs.conda.io/projects/miniconda/en/latest/).
+
+#### 3 Grant Input Monitoring Access to Terminal in MacOS
 
 To use keyboard interactivity in the projects, you must first grant the Terminal security access to monitor inputs (keyboards and mice). To do this
 
 * Choose Apple menu  > System Settings
 
-* Click Privacy & Security <img src="https://help.apple.com/assets/6529D8627783ACA29F083601/6529D866CFDD5FD5B90BAB1B/en_US/f9979df145e31ea9fb18995403d2b2f6.png" title="" alt="" width="50"> in the sidebar. (You may need to scroll down.)
+* Click Privacy & Security <img src="https://help.apple.com/assets/6529D8627783ACA29F083601/6529D866CFDD5FD5B90BAB1B/en_US/f9979df145e31ea9fb18995403d2b2f6.png" title="" alt="" width="50"> (or Security & Privacy on older systems).
 
-* Click the Input Monitoring tab.
+* In the ribbon on the side, click the Input Monitoring tab. If the terminal is not in the list you will need to add it:
+  
+  * Click the lock icon to unlock the list. Input your password to unlock.
+  
+  * Click the **+** button.
+  
+  * Navigate to *Applications/Utilities*.
+  
+  * Locate the Terminal app and select **Open** to add it to the Input Monitoring list
 
-* You may need to add Terminal to the Input Monitoring list. To do this, click the **+** button. Now locate the Terminal app in the Apps/Utilities folder and add it to the Input Monitoring list. Return to the Input Monitoring page and click the box next to Terminal to allow the Terminal access to read keyboard inputs. This may require you to input your password. **If you did not need to add the Terminal app, you still need to click the box next to the Terminal app to allow input monitoring**.
+* Check the box next to the Terminal app in the Input Monitoring list to enable it.
 
-* Now, click the Accessibility tab. This will be near the Input Monitoring tab.
+* Now, in the ribbon in the side, click the Accessibility tab. If the Terminal is not in the list, follow the steps above to add it.
 
-* You may need to add Terminal to the Accessibility list. To do this, click the **+** button. Now locate the Terminal app in the Apps/Utilities folder and add it to the Accessibility list. Return to the Accessibility page and click the box next to Terminal to allow the Terminal accessibility privileges. This may require you to input your password. **If you did not need to add the Terminal app, you still need to click the box next to the Terminal app to allow accessibility**.
+* Check the box next to the Terminal app in the Accessibility list to enable it.
 
-#### 3 Install condynsate in a Miniconda virtual environment in MacOS
+#### 4 Install condynsate in a Miniconda virtual environment in MacOS
 
 To create a new Miniconda virtual environment, in your already open Terminal run the command
 
@@ -612,17 +657,17 @@ conda config --env --set channel_priority strict
 conda clean -a -y
 ```
 
-Now install the Conda-Forge dependencies by running the command
+Now install pip from Conda-Forge by running the command
 
 ```bash
-conda install -y python=3 git numpy scipy pynput matplotlib pybullet control sympy notebook ipywidgets imageio imageio-ffmpeg pyqt pyside6
+conda install pip
 ```
 
-Once the installation is complete, install condynsate by running the commands
+Once the installation is complete, install condynsate and other dependencies via pip by running the commands
 
 ```bash
 pip cache purge
-pip install condynsate
+pip install wheel condynsate pyside6
 ```
 
 You can check that condynsate installed correctly by running the command
@@ -646,7 +691,7 @@ quit()
 
 to quit the Python shell.
 
-#### 4 Clone the ae353-sp24 Repository using Git in MacOS
+#### 5 Clone the ae353-sp24 Repository using Git in MacOS
 
 In your already opened Terminal, navigate to the directory you want to clone the ae353-sp24 code repository into. Now, clone the repository into the current directory by typing the command
 
