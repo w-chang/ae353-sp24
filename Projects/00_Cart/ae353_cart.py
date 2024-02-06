@@ -57,41 +57,39 @@ class Cart_sim():
                              animation=animation,
                              animation_fr=animation_fr)
         
-        # Load urdf objects
-        if visualization:
-            # Get the path to the current directory
-            path = (Path(__file__).parents[0]).absolute().as_posix()
-            
-            # Load the ground
-            plane_path = path + "/cart_vis/plane.urdf"
-            self.ground_obj = self.sim.load_urdf(urdf_path=plane_path,
-                                            position=[0., 0., 0.],
-                                            wxyz_quaternion=[1., 0., 0., 0],
+        # Get the path to the current directory
+        path = (Path(__file__).parents[0]).absolute().as_posix()
+        
+        # Load the ground
+        plane_path = path + "/cart_vis/plane.urdf"
+        self.ground_obj = self.sim.load_urdf(urdf_path=plane_path,
+                                        position=[0., 0., 0.],
+                                        wxyz_quaternion=[1., 0., 0., 0],
+                                        fixed=True,
+                                        update_vis=False)
+
+        # Load the walls
+        concrete_path = path + "/cart_vis/concrete.png"
+        self.left_wall_obj = self.sim.load_urdf(urdf_path=plane_path,
+                                           tex_path=concrete_path,
+                                           position=[0., -5., 0.],
+                                           roll=-np.pi/2.,
+                                           fixed=True,
+                                           update_vis=False)
+        self.right_wall_obj = self.sim.load_urdf(urdf_path=plane_path,
+                                            tex_path=concrete_path,
+                                            position=[0., 5., 0.],
+                                            roll=np.pi/2.,
                                             fixed=True,
                                             update_vis=False)
-
-            # Load the walls
-            concrete_path = path + "/cart_vis/concrete.png"
-            self.left_wall_obj = self.sim.load_urdf(urdf_path=plane_path,
-                                               tex_path=concrete_path,
-                                               position=[0., -5., 0.],
-                                               roll=-np.pi/2.,
-                                               fixed=True,
-                                               update_vis=False)
-            self.right_wall_obj = self.sim.load_urdf(urdf_path=plane_path,
-                                                tex_path=concrete_path,
-                                                position=[0., 5., 0.],
-                                                roll=np.pi/2.,
-                                                fixed=True,
-                                                update_vis=False)
-            
-            # Load the cart
-            cart_path = path + "/cart_vis/cart.urdf"
-            self.cart_obj = self.sim.load_urdf(urdf_path=cart_path,
-                                               position=[0., 0., 0.25],
-                                               yaw=np.pi/2,
-                                               fixed=False,
-                                               update_vis=True)
+        
+        # Load the cart
+        cart_path = path + "/cart_vis/cart.urdf"
+        self.cart_obj = self.sim.load_urdf(urdf_path=cart_path,
+                                           position=[0., 0., 0.25],
+                                           yaw=np.pi/2,
+                                           fixed=False,
+                                           update_vis=True)
 
         
         # If there is no animation, do not add subplots
@@ -309,7 +307,7 @@ class Cart_sim():
             ###################################################################
             # STEP THE SIMULATION
             # Step the sim
-            val = self.sim.step(real_time=True,
+            val = self.sim.step(real_time=self.visualization or self.animation,
                                 update_vis=self.visualization,
                                 update_ani=self.animation,
                                 max_time=max_time)
