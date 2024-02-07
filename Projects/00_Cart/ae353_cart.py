@@ -91,7 +91,6 @@ class Cart_sim():
                                            fixed=False,
                                            update_vis=True)
 
-        
         # If there is no animation, do not add subplots
         if not animation:
             return
